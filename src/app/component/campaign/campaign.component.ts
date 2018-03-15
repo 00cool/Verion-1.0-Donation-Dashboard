@@ -29,8 +29,8 @@ export class CampaignComponent implements OnInit {
 
   constructor(public db: AngularFirestore, public router: Router) {
 
-    this.campaignCollection = db.collection<Campaign>('campaign');
-    this.campaign = db.collection('campaign').valueChanges();
+    this.campaignCollection = db.collection<Campaign>('campaign_temp');
+    this.campaign = db.collection('campaign_temp').valueChanges();
 
     this.sub_campaignCollection = db.collection<SubCampaign>('subCampaign_temp');
     this.sub_campaign = db.collection('subCampaign_temp').valueChanges();
