@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node server.js",
     "ng": "ng",
-    "postinstall": "ng build --aot=false",
+    "postinstall": "ng build --aot -prod",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
@@ -45,7 +45,7 @@
     "core-js": "^2.4.1",
     "data-forge": "^0.5.7",
     "dataframe-js": "^1.2.7",
-    "express": "^4.16.2",
+    "express": "^4.16.3",
     "firebase": "4.8.0",
     "heatmap.js": "^2.0.5",
     "highcharts": "^6.0.7",
@@ -61,8 +61,8 @@
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
-    "@angular/cli": "^1.7.2",
-    "@angular/compiler-cli": "^5.2.7",
+    "@angular/cli": "^1.7.3",
+    "@angular/compiler-cli": "^5.2.9",
     "@angular/language-service": "^5.2.6",
     "@types/jasmine": "~2.5.53",
     "@types/jasminewd2": "~2.0.2",
