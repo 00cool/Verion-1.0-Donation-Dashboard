@@ -1,0 +1,36 @@
+<html>
+  <body>
+ 
+
+
+        <input type="text" id="cat_name" name="cat_name" placeholder="add category for campaign">
+        <br>
+        <br>
+        <button  value="add cat"  class="st_btn1" (click)="addval()"></button>
+
+      <br>
+   <select >
+     <option *ngFor = 'let item of items | async'>{{item.name}}</option>
+   </select>
+      
+      <br>
+      <br>
+      <input type="text" id="cat_name" name="cat_name" placeholder="add  campaign">
+      <br>
+      <br>
+      <input type="date" />
+      <br>
+      <br>
+
+      <ul>
+        <li class="text" *ngFor="let item of items | async">
+          {{item.$value}}
+        </li>
+      </ul>
+
+      <br>
+
+      <button type="submit" value="add cat"  class="st_btn1"></button>
+ 
+  </body>
+</html>

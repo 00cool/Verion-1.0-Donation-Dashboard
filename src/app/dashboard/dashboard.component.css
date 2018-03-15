@@ -1,0 +1,105 @@
+
+
+.side_button {
+  background-color: white;
+  color: #f3680c;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px grey;
+  width: 200px;
+  float: left;
+ 
+}
+
+.example-sidenav {
+    display: flex;
+    align-items: top;
+    justify-content: top;
+    width: 15%;
+   
+    background:white;
+  }
+
+  .example-container {
+    position: absolute;
+    top: 100px;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    background:white;
+    z-index: -10;
+    /* backface-visibility: inherit; */
+  }
+
+  .example-content {
+    position: absolute; 
+    bottom: 0px;
+    left: 10px;
+    right: 0;
+    
+    background: white;
+   
+  }
+
+.example-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .button{
+    background-color:white;
+    width: 5%;
+    font-size: 10px;
+    align-self: center;
+    border: 10rem; 
+    
+   
+}
+
+.dropbtn1 {
+  background-color: white;
+  color: #f3680c;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  width: 140px;
+  float: left;
+ 
+}
+
+/* Dropdown button on hover & focus */
+ .dropbtn1:hover, .dropbtn1:focus {
+  background-color: white; 
+} 
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown1 {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content1 {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px grey(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content1 a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content1 a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}

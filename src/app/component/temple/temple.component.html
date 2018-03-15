@@ -1,0 +1,59 @@
+
+<select id="country" (change)="showTemple()" placeholder="select Country">
+    <option value="" disabled selected>Select your option</option>
+    <option *ngFor='let item of items | async' id={{item.name}}>{{item.name}}</option>
+  </select>
+
+  <div  id="temple" style="display:none">
+    <br>
+    <br>
+  <table border="2">
+      <tr *ngFor='let item of all_temp' >
+         <td><input type="text" value={{item}} readonly></td>
+         <td ><button value={{item}} id={{item}}  (click)="deletetemple(this.id)" >delete</button> </td>
+         <td ><button value={{item}} id={{item}}  (click)="show(this.id)" >edit</button> </td>
+         
+      </tr>
+    </table>
+    
+  </div>
+
+  <div id="add">
+    <br>
+    <br>
+    <input type="text" id="new_temp" name="new_temp" placeholder="add new temple">
+    <button (click)="addTemple()" >Add Temple</button>
+
+  
+
+  </div>
+
+  <div *ngIf=isvalid>
+      <br>
+    <input type="text" id="temp1" value={{edit_temp}} />
+    <button type="submit" id={{edit_country}} (click)="update()">update</button>
+  </div>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          map: map
+        });
+      }
+    </script>
+     
+
+     <iframe
+     width="450"
+     height="250"
+     frameborder="0" style="border:0"
+     src="https://www.google.com/maps/embed/v1/search?key=AIzaSyDFsT6zdpHVtKFWc7Ab59JCeykKJzkSUJo&q=My%20Location" (click)="getloc()" allowfullscreen>
+   </iframe>
+  </body>

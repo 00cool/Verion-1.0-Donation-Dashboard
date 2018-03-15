@@ -1,0 +1,23 @@
+<head>
+    <base href="/">
+  </head>
+  
+  <table border="2">
+    <tr *ngFor='let item of items | async' >
+      <td><input type="text" value={{item.name}} readonly></td>
+      <td ><button value={{item.name}} id={{item.name}}  (click)=" deleteTapLearn(this.id)" >delete</button> </td>
+      <td ><button value={{item.name}} id={{item.name}}  (click)="show(this.id)" >edit</button> </td>
+      
+    </tr>
+  </table>
+<br>
+<input type="text" id="country"/> 
+<button type="submit" (click)="addcountry()">add country</button>
+
+
+
+<div *ngIf=isvalid>
+    <br>
+  <input type="text" id="country1" value={{edit_country}} />
+  <button type="submit" id={{edit_country}} (click)="update()">update</button>
+</div>

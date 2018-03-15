@@ -1,0 +1,93 @@
+<html>
+
+<body>
+
+  <div class="row" style="text-align:center;margin-top: 100px;">
+    <div class="col s12">
+        <div style="width:70%;">
+    
+            <button class="button" style="float:right; margin-right:-60px" (click)="openModule()">Add New</button>
+            <br>
+            </div>
+      <!-- <img src="./src/../../../../assets/img/Radhakrishna.jpg" width="20%" style="text-align:center;" /> -->
+<br>
+<br>
+      <table class="shadow-effect  width-50" style=" margin-left: 300px; border:1px solid grey;"  >
+        <tr style=" border-bottom:1px solid grey;" class="shadow-effect">
+          <th  style="padding:12px; text-align:center">Name of the Campaign</th>
+          <th  style=" border-left:1px solid grey; padding:10px;text-align:center" colspan="2">Manage</th>
+        </tr>
+        <tr *ngFor='let item of items | async'>
+          <td align="center" style="padding:12px" cell>{{item.name}} </td>
+          <td align="center" class="td-css width-40" style="border-left:1px solid grey;border-right:1px solid grey; ">
+              <div class="float-left width-50">
+                  <img src="./src/../../../../assets/img/edit.jpg" class="center width-10" />
+                <button class="button-text" value={{item.name}} id={{item.name}} (click)="show(this.id)">Edit</button>
+              </div>
+              <div class="float-left width-50">
+                  <img src="./src/../../../../assets/img/delete.jpg" class="center width-10" />
+                  <button class="button-text" value={{item.name}} id={{item.name}} (click)="deletecamp(this.id)">Delete</button>
+              </div>
+    
+    
+            </td>
+
+        </tr>
+      </table>
+
+
+      <br>
+      <br>
+
+
+      <!-- <div id="myModal" class="modal shadow-effect">
+        <span class="close" (click)="spanClick()">&times;</span>
+        <div class="modal-content">
+
+          <div>
+            <div class="popup-inner-style width-80">
+              <form action="" method="post">
+                <label >Add New Campaign</label>
+                <br>
+                <label>Name of campaign</label>
+                <input class="input" type="text" id="cat_name" name="cat_name" placeholder="add category for campaign">
+                <br>
+                <br>
+                <button type="submit" value="add cat" class="button">ADD</button>
+              </form>
+
+            </div>
+
+          </div>
+        </div>
+      </div> -->
+
+      <div id="myModal" class="modal shadow-effect">
+        <span class="close" (click)="spanClick()">&times;</span>
+
+        <div>
+          <div class="popup-inner-style width-100">
+            <form action="" method="post">
+              <h5  id="h5" class="popup-heading"> Add New Campaign</h5>
+              <br>
+              <label class="float-center">Name of campaign</label>
+              <br>
+              <input class="input width-100" type="text" id="cat_name" name="cat_name" placeholder="Add New Campaign">
+              <br>
+              <br>
+              <button type="submit" id="add" class="width-100 button" (click)="checkButton()">ADD</button>
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="js/leaflet-providers.js"></script>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Analytics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="/">
+</head>
+
+<body>
+<style type="text/css">
+ #container {
+	width: 100%;
+	height: 100%;
+}
+#container1 {
+	width: 100%;
+  height: 100%;
+  
+}
+.map {
+  height: 100%;
+  padding: 0;
+  width: 80%;
+}
+
+
+.mapbox {
+  width: 80%;
+  height: 600px;
+}
+
+  </style> 
+  <div id="time series">
+      <!-- <h3 align='center'>Donation Time Series </h3> -->
+   <div id="container1" style="margin-left:80px" >
+  
+   <chart type="StockChart" [options]="time_series"></chart>
+</div>
+</div>
+
+</body>
+

@@ -1,0 +1,84 @@
+<div class="row" style="text-align:center;margin-top: 100px;">
+  <div class="col s12">
+    <div style="width:90%;">
+      <button class="button" style="float:right" (click)="openModule()"> Add New </button>
+      <br>
+    </div>
+    <!-- <img src="./src/../../../../assets/img/Radhakrishna.jpg" width="20%" style="text-align:center;" /> -->
+    <br>
+    <br>
+    <table class="shadow-effect table-css">
+      <tr class="shadow-effect" style="border-bottom: 0.3px solid #cccccc; text-align:center">
+        <th align="center" class="td-css width-10">Name of picture</th>
+        <th align="center" class="td-css width-10">Sub-title(if any)</th>
+        <th align="center" class="td-css width-10">NFC name</th>
+        <th align="center" class="td-css width-30">Description</th>
+        <th align="center" class="width-20" style="padding:15px" colspan="2">Manage</th>
+      </tr>
+      <tr *ngFor='let item of items | async'>
+        <td align="center" class="td-css width-10" cell>{{item.image}} </td>
+        <td align="center" class="td-css width-10" cell>{{item.subtitle}} </td>
+        <td align="center" class="td-css width-10" cell>{{item.nfc}} </td>
+        <td align="center" class="td-css width-30" cell>{{item.desc}} </td>
+        <td align="center" class="width-20" style="padding:15px">
+            <div class="float-left width-50">
+                <img src="./src/../../../../assets/img/edit.jpg" class="center width-10" />
+              <button class="button-text" value={{item.image}} id={{item.image}} (click)="show(this.id)">Edit</button>
+            </div>
+            <div class="float-left width-50">
+                <img src="./src/../../../../assets/img/delete.jpg" class="center width-10" />
+                <button class="button-text" value={{item.image}} id={{item.image}} (click)="deleteTapLearn(this.id)">Delete</button>
+            </div>
+  
+  
+          </td>
+
+      </tr>
+    </table>
+
+
+    <br>
+    <br>
+
+
+    <div id="myModal" class="modal shadow-effect">
+        <span class="close" (click)="spanClick()">&times;</span>
+      <div>
+        <div class="modal-content" style="background-color: #f0f8ff00;border-radius: 0px;padding: 0px;">
+         
+          <div>
+
+            <h5 id="h5" class="popup-heading">Add Tap and learn Content</h5>
+            <form #formData='ngForm' style="text-align: center;width: 35%;display:block;margin:auto">
+
+              <br>
+
+              <label for="image">Name of picture</label>
+              <input class="input" type="textbox"  name="image" id="image" placeholder="Enter Name of Picture">
+           
+            
+              <label for="subtitle">Sub-title(if any)</label>
+              <input class="input" type="textbox"  name="subtitle" id="subtitle" placeholder="Sub Title if any">
+       
+             
+              <label for="nfc">NFC Name</label>
+              <input class="input" type="textbox"  name="nfc" id="nfc" placeholder="NFC Name">
+            
+         
+              <label for="desc">Description</label>
+              <textarea class="input1"  cols="22" rows="3" name="desc" id="desc" placeholder="Enter desprication..." required></textarea>
+    
+              <br>
+              <br>
+              <button class="button1" type="submit" id="login" name="login" (click)="checkButton()">
+                ADD</button>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

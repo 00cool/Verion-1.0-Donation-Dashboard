@@ -1,0 +1,54 @@
+.button{
+    background-color: rgb(246, 250, 252);
+    width: inherit;
+    font-size: 20px;
+    align-self: center;
+    border: 10rem; 
+    border-color: #adadad  
+   
+}
+
+
+    html, body, #container1,#container2,#container3,#container4 {
+      height: 100%;
+      width: 100%;
+    }
+    body, #container1 {
+      margin: 0;
+    }
+    #main_block {
+  display: block; /* Useless, divs are display:block */
+  width: 100%;    /* Useless, display:block elements are width:100% by default */
+  height: 100%;   /* Fairly useless now, should take children's height */
+  font-size:0;    /* Force space between inline-block elements to be 0 */
+}
+#left_frame {
+  width: 140px;
+}
+#left_frame,#right_frame {
+  display: inline-block;
+  box-sizing: border-box;
+  height: calc(100vh - 50px);
+}
+#iframe1 {
+      width: 100%;
+      height: 500px;
+      border: 5px;
+    }
+#iframe2 {
+      width: 46%;
+      height: 600px;
+      border: 2px;
+    }
+#iframe3 {
+      width: 625px;
+      height: 500px;
+      border: 2px;
+}
+    #iframe4 {
+      width: calc(100% - 625px);
+      height: 500px;
+      border: 2px;
+    }
+
+ 

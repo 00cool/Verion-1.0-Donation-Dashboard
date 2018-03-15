@@ -1,0 +1,108 @@
+.button{
+    background-color: #008CBA;
+    width: 12%;
+    font-size: 15px;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 0px;
+    border: 0ch;
+    
+}
+
+.button1 {
+    background-color: #008CBA;
+    width: 100%;
+    font-size: 15px;
+    color: white;
+    padding: 12px 20px;
+    /* border-radius: 0px; */
+    border: 0ch;
+    
+}
+
+.input{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.input1{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+  /* pop up css */
+
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px;/* Location of the box */
+    left: 400px;
+    top: 200px;
+    width: 60%; /* Full width */
+    height: 60%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: white; /* Fallback color */
+    background-color : white rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0px;
+    border: 0px solid #888;
+    width: 85%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 40px;
+    font-weight: lighter;
+    position: absolute;
+    top: 0;
+    right: inherit;
+    margin-right: 2%;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.table-css
+{
+    margin-left:auto ;
+    margin-right: auto;
+     margin:center; 
+      width:80%;
+    /* border:1 px solid grey; */
+    
+}
+.td-css
+{
+    padding: 15px;
+    /* border:1px solid grey; */
+    border-right: 0.3px solid #cccccc;
+}
+
+.popup-heading
+{
+    border-bottom: 2px solid #2bbbec;
+    padding-bottom: 10px;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+}

@@ -1,0 +1,21 @@
+<div class="row" style="text-align: center;margin-top: 100px;">
+  <div class="col s12">
+    <img src="./src/../../../../assets/img/Radhakrishna.jpg" width="20%" />
+  </div>
+  <br>
+  <select id="country" class="select" (change)="checkvalue()" required>
+    <option value="a" hidden selected>Select your option</option>
+    <option *ngFor='let cy of countrys | async' id={{cy.name}}>{{cy.name}}</option>
+  </select>
+  <br>
+  <br>
+  <div id="temple" style="display:none" >
+  <select  class="select" (change)="showbutton()" required>
+    <option value="" hidden selected>Select your option</option>
+    <option *ngFor='let temple of temp_acc_country' id={{temple}}>{{temple}}</option>
+  </select>
+</div>
+  <br>
+  <br>
+  <button *ngIf="show" class="button" routerLink="/select_designation" type="submit">Done</button>
+</div>

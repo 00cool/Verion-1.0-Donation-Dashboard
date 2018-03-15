@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link href="https://www.highcharts.com/highslide/highslide.css" rel="stylesheet" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+        <script type="text/javascript" src="https://code.highcharts.com/highcharts-more.js"></script>
+        <script type="text/javascript" src="https://code.highcharts.com/modules/heatmap.js"></script>
+        <script type="text/javascript" src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script type="text/javascript" src="https://code.highcharts.com/modules/offline-exporting.js"></script>
+    </head>
+    <body style="margin:0;padding:0">
+                <div id="container" style="width:1100px;height:600px;">Loading....</div>
+
+
+    <script>
+        $(function(){
+
+
+
+
+
+            Highcharts.setOptions({"global": {}, "lang": {}});
+            var option = {"title": {"text": "Donation<br>Per Campaign<br>Types", "align": "center", "verticalAlign": "middle", "y": -40}, "exporting": {"filename": "Donation Per Campaign Types", "enabled": true}, "legend": {"x": 50, "labelFormatter": function () {                                    return this.name + ' : '+ this.y +' £';}, "backgroundColor": "#FFFFFF", "floating": true, "y": -200}, "tooltip": {"valueSuffix": " \u00a3"}, "credits": {"enabled": false}, "yAxis": {"title": {"text": "Total Donation"}}, "drilldown": {}, "colors": {}, "plotOptions": {"pie": {"shadow": false, "endAngle": 90, "startAngle": -90, "center": ["50%", "50%"], "cursor": "pointer", "allowPointSelect": true}}, "navigation": {}, "subtitle": {}, "chart": {"type": "pie", "width": 1100, "renderTo": "container", "height": 600}, "loading": {}, "pane": {}, "labels": {}, "series": {}, "xAxis": {}};
+
+
+ 
+
+            var chart = new Highcharts.Chart(option);
+
+            var data = [{"size": "60%", "type": "pie", "dataLabels": {"enabled": false}, "innerSize": "40%", "data": [{"color": Highcharts.getOptions().colors[0], "name": "Aratis", "y": 6398}, {"color": Highcharts.getOptions().colors[1], "name": "Flowers & Garlands", "y": 11316}, {"color": Highcharts.getOptions().colors[2], "name": "Other Offerings", "y": 8399}, {"color": Highcharts.getOptions().colors[3], "name": "Feast & Prasadam", "y": 1610}], "name": "Campaign Type", "showInLegend": true}, {"size": "80%", "type": "pie", "dataLabels": {"formatter": function () {                                    return this.y > 1 ? '<b>' + this.point.name + ':</b> ' + this.y + ' £'  : null;}}, "innerSize": "60%", "data": [{"color": Highcharts.Color(Highcharts.getOptions().colors[0]).brighten(0.2).get(), "name": "Mangala Arati", "y": 547}, {"color": Highcharts.Color(Highcharts.getOptions().colors[0]).brighten(0.16666666666666669).get(), "name": "Dhoopa Arati", "y": 1223}, {"color": Highcharts.Color(Highcharts.getOptions().colors[0]).brighten(0.13333333333333336).get(), "name": "Raj Bhoga Arati", "y": 1226}, {"color": Highcharts.Color(Highcharts.getOptions().colors[0]).brighten(0.1).get(), "name": "Dhoopa Arati", "y": 1335}, {"color": Highcharts.Color(Highcharts.getOptions().colors[0]).brighten(0.06666666666666668).get(), "name": "Sandhya Arati", "y": 1094}, {"color": Highcharts.Color(Highcharts.getOptions().colors[0]).brighten(0.033333333333333326).get(), "name": "Sayana Arati", "y": 973}, {"color": Highcharts.Color(Highcharts.getOptions().colors[1]).brighten(0.2).get(), "name": "Flower for Festival", "y": 1090}, {"color": Highcharts.Color(Highcharts.getOptions().colors[1]).brighten(0.18000000000000002).get(), "name": "Sri Londonisvara", "y": 1280}, {"color": Highcharts.Color(Highcharts.getOptions().colors[1]).brighten(0.16).get(), "name": "Srimati Radharani", "y": 1481}, {"color": Highcharts.Color(Highcharts.getOptions().colors[1]).brighten(0.14).get(), "name": "Lord Jagannatha", "y": 991}, {"color": Highcharts.Color(Highcharts.getOptions().colors[1]).brighten(0.12000000000000001).get(), "name": "Lord Balaram", "y": 930}, {"color": Highcharts.Color(Highcharts.getOptions().colors[1]).brighten(0.1).get(), "name": "Lady Subhadra", "y": 1002}, {"color": Highcharts.Color(Highcharts.getOptions().colors[1]).brighten(0.08000000000000002).get(), "name": "Sri Gaura", "y": 1190}, {"color": Highcharts.Color(Highcharts.getOptions().colors[1]).brighten(0.060000000000000026).get(), "name": "Sri Nitai", "y": 1130}, {"color": Highcharts.Color(Highcharts.getOptions().colors[1]).brighten(0.04000000000000001).get(), "name": "Giriraj", "y": 1018}, {"color": Highcharts.Color(Highcharts.getOptions().colors[1]).brighten(0.020000000000000018).get(), "name": "Srila Prabhupada", "y": 1204}, {"color": Highcharts.Color(Highcharts.getOptions().colors[2]).brighten(0.2).get(), "name": "Special Maha Offerings", "y": 1220}, {"color": Highcharts.Color(Highcharts.getOptions().colors[2]).brighten(0.17142857142857143).get(), "name": "Abhisekh", "y": 834}, {"color": Highcharts.Color(Highcharts.getOptions().colors[2]).brighten(0.14285714285714288).get(), "name": "Altar Decoration Flowers", "y": 1654}, {"color": Highcharts.Color(Highcharts.getOptions().colors[2]).brighten(0.1142857142857143).get(), "name": "Srila Prabhupada 's Vyasasana Decoration", "y": 1408}, {"color": Highcharts.Color(Highcharts.getOptions().colors[2]).brighten(0.08571428571428573).get(), "name": "Temple Decorations", "y": 1468}, {"color": Highcharts.Color(Highcharts.getOptions().colors[2]).brighten(0.05714285714285716).get(), "name": "Temple Room Decorations", "y": 726}, {"color": Highcharts.Color(Highcharts.getOptions().colors[2]).brighten(0.02857142857142858).get(), "name": "Jhulan", "y": 1089}, {"color": Highcharts.Color(Highcharts.getOptions().colors[3]).brighten(0.2).get(), "name": "Feast", "y": 1029}, {"color": Highcharts.Color(Highcharts.getOptions().colors[3]).brighten(0.1).get(), "name": "Varuni Drink", "y": 581}], "name": "Campaign"}];
+            var dataLen = data.length;
+            for (var ix = 0; ix < dataLen; ix++) {
+                chart.addSeries(data[ix]);
+            }
+ 
+
+
+
+
+
+
+
+        
+    });
+        </script>
+
+    </body>
+</html>

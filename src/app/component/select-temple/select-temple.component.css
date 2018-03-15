@@ -1,0 +1,18 @@
+.select {
+    margin-bottom: 1em;
+    padding: .75em;
+    border: 2px thick;
+    width: 20%;
+    font-weight: bold;
+    letter-spacing: .15em;
+    border-radius: 50;
+}
+
+.button{
+    background-color: #008CBA;
+    width: 15%;
+    font-size: 20px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: 0ch;
+}
