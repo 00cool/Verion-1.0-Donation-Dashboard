@@ -72,9 +72,11 @@
               <br>
               <label class="float-center">Name of campaign</label>
               <br>
-              <input class="input width-100" type="text" id="cat_name" name="cat_name" placeholder="Add New Campaign">
+              <input class="input width-100" type="text" id="cat_name" name="cat_name" placeholder="Add New Campaign" required>
               <br>
               <br>
+              <input type="text" id="imageurl" name="imageurl" hidden>
+      <br>
               <button type="submit" id="add" class="width-100 button" (click)="checkButton()">ADD</button>
             </form>
 

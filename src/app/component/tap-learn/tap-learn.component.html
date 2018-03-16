@@ -16,18 +16,18 @@
         <th align="center" class="width-20" style="padding:15px" colspan="2">Manage</th>
       </tr>
       <tr *ngFor='let item of items | async'>
-        <td align="center" class="td-css width-10" cell>{{item.image}} </td>
+        <td align="center" class="td-css width-10" cell>{{item.name}} </td>
         <td align="center" class="td-css width-10" cell>{{item.subtitle}} </td>
-        <td align="center" class="td-css width-10" cell>{{item.nfc}} </td>
+        <td align="center" class="td-css width-10" cell>{{item.tag_name}} </td>
         <td align="center" class="td-css width-30" cell>{{item.desc}} </td>
         <td align="center" class="width-20" style="padding:15px">
             <div class="float-left width-50">
                 <img src="./src/../../../../assets/img/edit.jpg" class="center width-10" />
-              <button class="button-text" value={{item.image}} id={{item.image}} (click)="show(this.id)">Edit</button>
+              <button class="button-text" value={{item.name}} id={{item.name}} (click)="show(this.id)">Edit</button>
             </div>
             <div class="float-left width-50">
                 <img src="./src/../../../../assets/img/delete.jpg" class="center width-10" />
-                <button class="button-text" value={{item.image}} id={{item.image}} (click)="deleteTapLearn(this.id)">Delete</button>
+                <button class="button-text" value={{item.name}} id={{item.name}} (click)="deleteTapLearn(this.id)">Delete</button>
             </div>
   
   
@@ -54,15 +54,15 @@
               <br>
 
               <label for="image">Name of picture</label>
-              <input class="input" type="textbox"  name="image" id="image" placeholder="Enter Name of Picture">
+              <input class="input" type="textbox"  name="name" id="name" placeholder="Enter Name of Picture" required>
            
             
               <label for="subtitle">Sub-title(if any)</label>
-              <input class="input" type="textbox"  name="subtitle" id="subtitle" placeholder="Sub Title if any">
+              <input class="input" type="textbox"  name="subtitle" id="subtitle" placeholder="Sub Title if any" required>
        
              
               <label for="nfc">NFC Name</label>
-              <input class="input" type="textbox"  name="nfc" id="nfc" placeholder="NFC Name">
+              <input class="input" type="textbox"  name="tag_name" id="tag_name" placeholder="NFC Name" required>
             
          
               <label for="desc">Description</label>

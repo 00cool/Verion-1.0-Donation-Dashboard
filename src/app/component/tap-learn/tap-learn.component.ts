@@ -9,7 +9,7 @@ import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/fires
 import { Tap_Learn } from '../home/home.component';
 import { window } from 'rxjs/operators/window';
 
-export interface Taplearn { desc: any[]; image: string; subtitle: string; nfc: string; }
+export interface Taplearn { desc: any[]; name: string; subtitle: string; tag_name: string; }
 
 @Component({
   selector: 'app-tap-learn',
@@ -31,8 +31,8 @@ export class TapLearnComponent implements OnInit {
 
   constructor(public af: AngularFireAuth, private router: Router, db: AngularFirestore) {
 
-    this.itemsCollection = db.collection<Taplearn>('tap_learn_temp');
-    this.items = db.collection('tap_learn_temp').valueChanges();
+    this.itemsCollection = db.collection<Taplearn>('tapAndLearn');
+    this.items = db.collection('tapAndLearn').valueChanges();
 
     this.af.authState.subscribe(auth => {
       if (auth) {
@@ -102,22 +102,22 @@ export class TapLearnComponent implements OnInit {
   addval() {
     console.log('call.... add');
     console.log((document.getElementById('desc') as HTMLInputElement).value);
-    console.log((document.getElementById('image') as HTMLInputElement).value);
+    console.log((document.getElementById('name') as HTMLInputElement).value);
     console.log((document.getElementById('subtitle') as HTMLInputElement).value);
-    console.log((document.getElementById('nfc') as HTMLInputElement).value);
+    console.log((document.getElementById('tag_name') as HTMLInputElement).value);
 
 
     const val = (document.getElementById('desc') as HTMLInputElement).value;
-    const val1 = (document.getElementById('image') as HTMLInputElement).value;
+    const val1 = (document.getElementById('name') as HTMLInputElement).value;
     const val2 = (document.getElementById('subtitle') as HTMLInputElement).value;
-    const val3 = (document.getElementById('nfc') as HTMLInputElement).value;
+    const val3 = (document.getElementById('tag_name') as HTMLInputElement).value;
     const string1 = val.split('.');
 
-    const item: Taplearn = { desc: string1, image: val1, subtitle: val2, nfc: val3 };
+    const item: Taplearn = { desc: string1, name: val1, subtitle: val2, tag_name: val3 };
     console.log('item' + item.desc);
-    console.log('item' + item.image);
+    console.log('item' + item.name);
     console.log('item' + item.subtitle);
-    console.log('item' + item.nfc);
+    console.log('item' + item.tag_name);
 
     console.log(this.itemsCollection.add(item));
     setTimeout(() => {
@@ -136,7 +136,7 @@ export class TapLearnComponent implements OnInit {
     val = event.srcElement.id;
     // const item: Taplearn = { desc: val; };
     let id;
-    const res = (this.itemsCollection.ref.where('image', '==', val).get().then(
+    const res = (this.itemsCollection.ref.where('name', '==', val).get().then(
       function a(querySnapshot) {
         querySnapshot.forEach(function (doc) {
           console.log(doc.id);
@@ -166,14 +166,14 @@ export class TapLearnComponent implements OnInit {
 
     let data: Taplearn;
 
-    const res = (this.itemsCollection.ref.where('image', '==', val).get().then(
+    const res = (this.itemsCollection.ref.where('name', '==', val).get().then(
       function a(querySnapshot) {
         querySnapshot.forEach(function (doc) {
           console.log('this' + doc.id);
           id = doc.id;
           console.log(doc.data().image);
 
-          data = { desc: doc.data().desc, image: doc.data().image, subtitle: doc.data().subtitle, nfc: doc.data().nfc };
+          data = { desc: doc.data().desc, name: doc.data().name, subtitle: doc.data().subtitle, tag_name: doc.data().tag_name };
 
           console.log('aa' + id);
 
@@ -189,9 +189,9 @@ export class TapLearnComponent implements OnInit {
     setTimeout(() => {
 
       (document.getElementById('desc') as HTMLInputElement).value = data.desc.toString();
-      (document.getElementById('image') as HTMLInputElement).value = data.image;
+      (document.getElementById('name') as HTMLInputElement).value = data.name;
       (document.getElementById('subtitle') as HTMLInputElement).value = data.subtitle;
-      (document.getElementById('nfc') as HTMLInputElement).value = data.nfc;
+      (document.getElementById('tag_name') as HTMLInputElement).value = data.tag_name;
       (document.getElementById('login') as HTMLInputElement).innerHTML = 'update';
       (document.getElementById('h5') as HTMLInputElement).innerHTML = 'Update Tap and learn Content';
       //  console.log(this.data.image);
@@ -211,7 +211,7 @@ export class TapLearnComponent implements OnInit {
     const string1 = val.split('.');
     // console.log(item);
     // tslint:disable-next-line:max-line-length
-    const item: Taplearn = { desc: string1, image: (document.getElementById('image') as HTMLInputElement).value, subtitle: (document.getElementById('subtitle') as HTMLInputElement).value, nfc: (document.getElementById('nfc') as HTMLInputElement).value };
+    const item: Taplearn = { desc: string1, name: (document.getElementById('name') as HTMLInputElement).value, subtitle: (document.getElementById('subtitle') as HTMLInputElement).value, tag_name: (document.getElementById('tag_name') as HTMLInputElement).value };
     console.log(this.update_id);
     // console.log((document.getElementById('desc') as HTMLInputElement).value);
     console.log(this.itemsCollection.doc(this.update_id).update(item));

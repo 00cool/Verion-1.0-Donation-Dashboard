@@ -31,6 +31,7 @@ export class AddSubCampComponent implements OnInit {
   }
 
   addval(){
+
     console.log("call....")
     console.log((document.getElementById("cat_name")as HTMLInputElement).value);
     //this.appList.push((document.getElementById("cat_name")as HTMLInputElement).value);

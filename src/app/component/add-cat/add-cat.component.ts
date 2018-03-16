@@ -6,7 +6,7 @@ import { concat } from 'rxjs/operators/concat';
 
 
 
-export interface Campaign { name: string; }
+export interface Campaign { name: string; imageurl: string}
 
 @Component({
   selector: 'app-add-cat',
@@ -24,8 +24,8 @@ export class AddCatComponent implements OnInit {
 
   constructor(db: AngularFirestore) {
 
-    this.itemsCollection = db.collection<Campaign>('campaign_temp');
-    this.items = db.collection('campaign_temp').valueChanges();
+    this.itemsCollection = db.collection<Campaign>('campaign');
+    this.items = db.collection('campaign').valueChanges();
    }
 
   ngOnInit() {
@@ -44,7 +44,8 @@ export class AddCatComponent implements OnInit {
   addval() {
     console.log('calling add funct');
     const val = (document.getElementById('cat_name') as HTMLInputElement).value;
-    const items: Campaign = {name: val};
+    const image= (document.getElementById('imageurl') as HTMLInputElement).value
+    const items: Campaign = {name: val ,imageurl : null};
     console.log('item' + items.name);
     console.log(this.itemsCollection.add(items));
 
@@ -98,7 +99,7 @@ export class AddCatComponent implements OnInit {
             console.log('this' + doc.id);
             id = doc.id;
             console.log(doc.data().name);
-            data = { name: doc.data().name };
+            data = { name: doc.data().name , imageurl: doc.data().imageurl};
             console.log('aa' + id);
 
           });
@@ -125,11 +126,12 @@ export class AddCatComponent implements OnInit {
     update() {
       console.log('hello update');
       const val = (document.getElementById('cat_name') as HTMLInputElement).value;
+      const val1 = (document.getElementById('imageurl') as HTMLInputElement).value
 
       //  const string1 = val.split('.');
         // console.log(item);
         // tslint:disable-next-line:max-line-length
-        const item: Campaign = { name: val };
+        const item: Campaign = { name: val ,imageurl: val1};
         console.log(this.update_id);
         // console.log((document.getElementById("desc") as HTMLInputElement).value);
         console.log(this.itemsCollection.doc(this.update_id).update(item));
