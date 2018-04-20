@@ -16,17 +16,18 @@ export interface SubCampaign { name: string; time: string; amount: string; campa
 
 export class CampaignComponent implements OnInit {
 
+  camp_id: string;
+  camp_all: object[];
+  update_id: string;
+  update_data: object;
+
   campaign: Observable<any[]>;
   public campaignCollection: AngularFirestoreCollection<Campaign>;
 
   sub_campaign: Observable<any[]>;
   public sub_campaignCollection: AngularFirestoreCollection<SubCampaign>;
 
-  camp_id: string;
-  camp_all: object[];
-  update_id: string;
-  update_data: object;
-
+  
   constructor(public db: AngularFirestore, public router: Router) {
 
     this.campaignCollection = db.collection<Campaign>('campaign');

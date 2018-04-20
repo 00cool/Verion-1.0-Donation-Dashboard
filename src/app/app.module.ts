@@ -40,6 +40,11 @@ import { DonationpercampComponent } from './component/donationpercamp/donationpe
 import { TimeSeriesComponent } from './component/time-series/time-series.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NewcampaignComponent } from './component/newcampaign/newcampaign.component';
+import { NewsubcampComponent } from './component/newsubcamp/newsubcamp.component';
+import { SponsorshipComponent } from './component/sponsorship/sponsorship.component';
+import { SubsponsorshipComponent } from './component/subsponsorship/subsponsorship.component';
+
 
 
 
@@ -68,6 +73,10 @@ const appRoutes: Routes =  [
     {path: 'timeseries', component: TimeSeriesComponent , canActivate: [AuthGuard], outlet: 'sidebar'},
     {path: 'donationpercamp', component: DonationpercampComponent , canActivate: [AuthGuard], outlet: 'sidebar'},
     {path: 'camp', component: AddCatComponent ,canActivate :[AuthGuard] , outlet:'sidebar'},
+    {path:'newcamp', component:NewcampaignComponent,canActivate:[AuthGuard], outlet:'sidebar'},
+    {path:'newsubcamp', component : NewsubcampComponent,canActivate: [AuthGuard] ,outlet : 'sidebar'},
+    {path:'sponsorship',component : SponsorshipComponent,canActivate:[AuthGuard],outlet: 'sidebar'},
+    {path : 'subsponsorship' , component : SubsponsorshipComponent,canActivate:[AuthGuard] , outlet: 'sidebar'}
    ]
 
 },
@@ -100,6 +109,16 @@ const appRoutes: Routes =  [
     TimeSeriesComponent,
 
     DashboardComponent,
+
+    NewcampaignComponent,
+
+    NewsubcampComponent,
+
+    SponsorshipComponent,
+
+    SubsponsorshipComponent,
+
+
 
 
   ],

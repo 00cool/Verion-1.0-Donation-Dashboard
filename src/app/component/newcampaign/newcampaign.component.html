@@ -1,0 +1,85 @@
+<html>
+
+<body>
+
+  <div class="row" style="text-align:center;margin-top: 100px;">
+    <div class="col s12">
+        <div style="width:70%;">
+    
+            <button class="button" style="float:right; margin-right:-60px" (click)="openModule()">Add New</button>
+            <br>
+            </div>
+      <!-- <img src="./src/../../../../assets/img/Radhakrishna.jpg" width="20%" style="text-align:center;" /> -->
+<br>
+<br>
+<table class="shadow-effect table-css">
+  <tr class="shadow-effect"  style="border-bottom: 0.3px solid #cccccc; text-align:center">
+    <th align="center" class="td-css width-20"  > Name of the Sub Campaign </th>
+    <th align="center" class="td-css width-20"  > Is there any Sub Campaign to this Campaign </th>
+    <th align="center" class="width-20" colspan="2"> Manage </th>
+  </tr>
+        <tr *ngFor='let item of items | async'>
+          <td align="center"  class="td-css width-25" >{{item.name}} </td>
+          <td align="center"  class="td-css width-25">{{item.isChild}} </td>
+          <td align="center" class="width-20">
+            <div class="float-left width-50">
+                <img src="./src/../../../../assets/img/edit.jpg" class="center width-10" />
+              <button class="button-text" value={{item.name}} id={{item.name}} (click)="show(this.id)">Edit</button>
+            </div>
+            <div class="float-left width-50">
+                <img src="./src/../../../../assets/img/delete.jpg" class="center width-10" />
+                <button class="button-text" value={{item.name}} id={{item.name}} (click)="delete(this.id)">Delete</button>
+            </div>
+  
+  
+          </td>
+
+        </tr>
+      </table>
+
+
+      <br>
+      <br>
+
+
+      
+
+      <div id="myModal" class="modal shadow-effect">
+        <span class="close" (click)="spanClick()">&times;</span>
+
+        <div>
+          <div class="popup-inner-style width-100">
+            <form action="" method="post">
+              <h5  id="h5" class="popup-heading"> Add New Campaign</h5>
+              <br>
+              <label class="float-center">Name of campaign</label>
+              <br>
+              <input class="input width-60" type="text" id="cat_name" name="cat_name" placeholder="Add New Campaign" required>
+              <br>
+              <br>
+              <div>
+                  <label class="float-center"> Is there any Sub Campaign to this Campaign</label>
+                <form action="">
+                    <input type="radio" [(ngModel)]="model" id="true" name="ischild" value="true">True<br>
+                    <input type="radio" [(ngModel)]="model" id="false" name="ischild" value="false">False
+                </form>
+                          
+            </div>
+           
+      <br>
+              <button type="submit" id="add" class="width-100 button" (click)="checkButton()">ADD</button>
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+</body>
+
+</html>

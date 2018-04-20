@@ -1,0 +1,104 @@
+<html>
+
+<body>
+
+  <div class="row" style="text-align:center;margin-top: 100px;">
+    <div class="col s12">
+        <div style="width:70%;">
+    
+            <button class="button" style="float:right; margin-right:-60px" (click)="openModule()">Add New</button>
+            <br>
+            </div>
+      <!-- <img src="./src/../../../../assets/img/Radhakrishna.jpg" width="20%" style="text-align:center;" /> -->
+<br>
+<br>
+<table class="shadow-effect table-css">
+  <tr class="shadow-effect"  style="border-bottom: 0.3px solid #cccccc; text-align:center">
+    <th align="center" class="td-css width-20"  > Name of the Sub Sponsorship</th>
+    <th align="center" class="td-css width-20"  > Amount </th>
+    <th align="center" class="width-20" colspan="2"> Manage </th>
+  </tr>
+        <tr *ngFor='let item of Subsponsorship | async'>
+          <td align="center"  class="td-css width-25" >{{item.name}} </td>
+          <td align="center"  class="td-css width-25">{{item.amount}} </td>
+          <td align="center" class="width-20">
+            <div class="float-left width-50">
+                <img src="./src/../../../../assets/img/edit.jpg" class="center width-10" />
+              <button class="button-text" value={{item.name}} id={{item.name}} (click)="show(this.id)">Edit</button>
+            </div>
+            <div class="float-left width-50">
+                <img src="./src/../../../../assets/img/delete.jpg" class="center width-10" />
+                <button class="button-text" value={{item.name}} id={{item.name}} (click)="delete(this.id)">Delete</button>
+            </div>
+  
+  
+          </td>
+
+        </tr>
+      </table>
+
+
+    
+      <div id="myModal" class="modal shadow-effect">
+        <span class="close" (click)="spanClick()">&times;</span>
+
+        <div>
+          <div class="popup-inner-style width-100">
+            <form action="" method="post">
+              <h5  id="h5" class="popup-heading"> Add New Campaign</h5>
+              <br>
+              <label class="float-center">Name of campaign</label>
+              <br>
+<select class="select" id="camp"  (change)="showsubcamp()"  placeholder="select Campaign">
+  <option id='selected' value="" disabled selected>Select your option</option>
+  <option *ngFor='let item of campaign | async' id={{item.name}}>{{item.name}}</option>
+</select>
+<br>
+<div id='select_sub'>
+<label class="float-center">Select Your Sub-Campaign</label>
+<br>
+<select class="select" id="sub_camp" (change)="showsponsorship()"  placeholder="select sub Campaign">
+  <option value="" disabled selected>Select your option</option>
+  <option *ngFor='let item of camp_all' id={{item.name}}>{{item}}</option>
+</select>
+</div>
+<div id='select_spon'>
+  <label class="float-center">Select Your Sponsorship</label>
+  <br>
+  <select class="select" id="spon_select"  placeholder="select Sponsorship">
+    <option value="" disabled selected>Select your option</option>
+    <option *ngFor='let item of spons_all' id={{item.name}}>{{item}}</option>
+  </select>
+  </div>
+  <br>
+
+
+              <label class="float-center">Name</label>
+              <br>
+              <input class="input width-100" type="text" id="sub_sponsorship" name="sub_sponsorship" placeholder="Enter Name" required>
+              <br>
+              
+              <div>
+                  <label class="float-center"> Amount</label>
+                  <br>
+                  <input class="input width-100" type="text" id="amount" name="amount" placeholder="Enter The Amount" required>
+                          
+            </div>
+           
+      <br>
+              <button type="submit" id="add_btn" class="button width-50"  (click)="checkButton()">ADD</button>
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+</body>
+
+</html>

@@ -13,18 +13,29 @@
          
           <button (click)="myFunction()" class="side_button shadow-effect">Manage Application</button>
           <br>
-          <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['camp'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
+          <!-- <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['camp'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
             Campaign </button>
           <br>
           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['campaign'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
             Sub-Campaign</button>
-          <br>
+          <br> -->
           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['tapandlearn'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
             Tap & Learn </button>
           <br>
+          <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['newcamp'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
+            Campaign </button>
+          <br>
+          <br>
+          <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['newsubcamp'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
+            SubCampaign </button>
           <!-- <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['home'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
             Event </button> -->
           <br>
+          <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['sponsorship'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
+            Sponsorship</button>
+            <br>
+            <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['subsponsorship'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
+              SubSponsorship</button>
          
           <!-- <button [routerLink]="/register"class="side_button" style="font:bold; color:#868686; font-size:15px;">
             staff </button> -->
