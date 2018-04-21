@@ -67,7 +67,7 @@ sponsid:string;
   }
 
   showSubCamp() {
-    (document.getElementById('sub_camp') as HTMLInputElement).style.display = 'block';
+   // (document.getElementById('sub_camp') as HTMLInputElement).style.display = 'block';
     const camp = (document.getElementById('camp') as HTMLInputElement).value;
     console.log(camp);
     let id;
@@ -76,35 +76,24 @@ sponsid:string;
         querySnapshot.forEach(function (doc) {
           // console.log(doc.id)
           id = doc.id;
-          //  console.log(id)
+            console.log(id)
         });
       }
     )).then(() => {
-      const arr = [];
-      console.log('data---' + id);
-      this.camp_id = id;
-      console.log('this i ' + this.camp_id + ' id ' + id);
+      
+      const res = (this.sub_campaignCollection.ref.where('parent_id', '==',id ).get());
+      
+      // return Promise.all([query.r()]).then(res => {
+      //   res.forEach(r => {
+      //     r.forEach(d => {
+      //       console.log('Get:', d.data().name);
 
-      this.camp_all = [];
-
-      const query = this.sub_campaignCollection.ref.where('parent_id', '==', id);
-
-
-      // tslint:disable-next-line:no-shadowed-variable
-      return Promise.all([query.get()]).then(res => {
-        res.forEach(r => {
-          r.forEach(d => {
-            console.log('Get:', d.data().name);
-              console.log("subcampid======" + d.id);
-            this.camp_all.push(d.data());
-          });
-          // console.log(this.all_temp.pop());
-        });
-      }).then(() => 
-    {
-
-    })
-
+      //       this.camp_all.push(d.data().name);
+      //     });
+      //     // console.log(this.all_temp.pop());
+      //   });
+      // })
+      
 
     });
 

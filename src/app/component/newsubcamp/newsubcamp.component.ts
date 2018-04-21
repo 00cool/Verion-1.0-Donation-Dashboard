@@ -133,8 +133,15 @@ update()
   const name = (document.getElementById('name') as HTMLInputElement).value;
 console.log(name);
 console.log(this.model);
+if(this.model)
+{
+  check= true;
+}
+else{
+  check = false;
+}
 
-const item : SubCampaign = {name: name , isChild : this.model,parent_id : this.camp_id}
+const item : SubCampaign = {name: name , isChild : check,parent_id : this.camp_id}
 this.sub_campaignCollection.doc(this.update_id).update(item).then(() => {
 
   window.location.reload();
