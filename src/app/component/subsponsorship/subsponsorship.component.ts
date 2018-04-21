@@ -25,6 +25,9 @@ export class SubsponsorshipComponent implements OnInit {
   camp_id : string;
   update_id: string;
   update_data: object;
+  subspons : any[];
+  subsponsorship : any[];
+  Displaydata : any[];
 model : boolean;
 parentid : string;
 sponsid:string;
@@ -81,21 +84,94 @@ sponsid:string;
       }
     )).then(() => {
       
-      const res = (this.sub_campaignCollection.ref.where('parent_id', '==',id ).get());
-      
-      // return Promise.all([query.r()]).then(res => {
-      //   res.forEach(r => {
-      //     r.forEach(d => {
-      //       console.log('Get:', d.data().name);
+      const ans = (this.sub_campaignCollection.ref.where('parent_id', '==',id ))
+      this.subspons = [];
+      return Promise.all([ans.get()]).then(res => {
+        res.forEach(r => {
+          r.forEach(d => {
+            console.log('Get:', d.data().name);
+              
+            this.subspons.push(d.data().name);
+          });
+          // console.log(this.all_temp.pop());
+        });
+      }).then(()=>{
+ 
+ 
+      //  (document.getElementById('sub_camp_id') as HTMLInputElement).style.display = 'block';
 
-      //       this.camp_all.push(d.data().name);
-      //     });
-      //     // console.log(this.all_temp.pop());
-      //   });
-      // })
+      })
       
 
     });
+
+}
+
+showdata()
+{
+  console.log("in show data")
+  let id
+  var subcampids = (document.getElementById('sponsorshipid') as HTMLInputElement).value;
+   console.log("data" + subcampids);
+  const res = (this.sponsCollection.ref.where('name', '==', subcampids).get().then(
+    function a(querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        // console.log(doc.id)
+        id = doc.id;
+          console.log(id)
+      });
+    }
+  )).then(() => {
+    this.Displaydata = [];
+
+    console.log(id);
+   const res = (this.subsponsCollection.ref.where('parent_id', '==', id).get().then(
+    (querySnapshot) => {
+      querySnapshot.forEach((doc1) => {
+        // console.log(doc.id)
+        id = doc1.id;
+        console.log(doc1.data().name);
+          console.log(id);
+          this.Displaydata.push(doc1.data());
+      });
+    }
+  )).then(() => 
+{
+  (document.getElementById('tabledata') as HTMLInputElement).style.display = 'block'
+})
+  })
+
+}
+
+show_spons()
+{
+  let id
+  var subcampids = (document.getElementById('sub_camp_id') as HTMLInputElement).value;
+  console.log("data" + subcampids);
+  const res = (this.sub_campaignCollection.ref.where('name', '==', subcampids).get().then(
+    function a(querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        // console.log(doc.id)
+        id = doc.id;
+          console.log(id)
+      });
+    }
+  )).then(() => {
+    this.subsponsorship = [];
+
+    console.log(id);
+   const res = (this.sponsCollection.ref.where('parent_id', '==', id).get().then(
+    (querySnapshot) => {
+      querySnapshot.forEach((doc1) => {
+        // console.log(doc.id)
+        id = doc1.id;
+        console.log(doc1.data().name);
+          console.log(id);
+          this.subsponsorship.push(doc1.data().name);
+      });
+    }
+  ));
+  })
 
 }
 

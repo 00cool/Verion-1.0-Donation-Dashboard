@@ -2,7 +2,7 @@
 
 <body>
 <br>
-  <div class="row" style="text-align:center;margin-top: 100px;">
+  <div class="row" style="text-align:center;margin-top: 50px;">
     <div class="col s12">
         <h3>Select your Campaign</h3><br>
         <select class="select" id="camp" (change)="showSubCamp()" placeholder="select Campaign">
@@ -10,10 +10,19 @@
           <option *ngFor='let item of campaign | async' id={{item.name}}>{{item.name}}</option>
         </select><br>
         <h3>Select your SubCampaign</h3><br>
-<select class="select" id="sub_camp"  placeholder="select your SubCampaign">
+<select class="select" id="sub_camp_id"  (change) ="show_spons()" placeholder="select your SubCampaign">
   <option value="" disabled selected>Select your option</option>
-  <option *ngFor='let item of sub_campaign | async' id={{item.name}}>{{item.name}}</option>
+  <option *ngFor='let item of subspons ' id={{item}}>{{item}}</option>
 </select>
+<h3>Select your Sponsorship</h3><br>
+<select class="select" id="sponsorshipid" (change) ="showdata()"  placeholder="select your Sponsorship">
+  <option value="" disabled selected>Select your option</option>
+  <option *ngFor='let item of subsponsorship ' id={{item}}>{{item}}</option>
+</select>
+
+<div id="tabledata" style="display:none">
+
+
         <div style="width:70%;">
     
             <button class="button" style="float:right; margin-right:-60px" (click)="openModule()">Add New</button>
@@ -28,7 +37,7 @@
     <th align="center" class="td-css width-20"  > Amount </th>
     <th align="center" class="width-20" colspan="2"> Manage </th>
   </tr>
-        <tr *ngFor='let item of Subsponsorship | async'>
+        <tr *ngFor='let item of Displaydata '>
           <td align="center"  class="td-css width-25" >{{item.name}} </td>
           <td align="center"  class="td-css width-25">{{item.amount}} </td>
           <td align="center" class="width-20">
@@ -46,6 +55,7 @@
 
         </tr>
       </table>
+</div>
 
 
     
