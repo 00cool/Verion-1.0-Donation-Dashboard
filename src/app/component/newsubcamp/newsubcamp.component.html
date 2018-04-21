@@ -23,7 +23,7 @@
 <table class="shadow-effect table-css">
   <tr class="shadow-effect"  style="border-bottom: 0.3px solid #cccccc; text-align:center">
     <th align="center" class="td-css width-20"  > Name of the Sub Campaign </th>
-    <th align="center" class="td-css width-20"  > Is there any Sub Campaign to this Sub Campaign </th>
+    <th align="center" class="td-css width-20"  > Is there any Sponsorship to this Sub Campaign </th>
     <th align="center" class="width-20" colspan="2"> Manage </th>
   </tr>
     <tr *ngFor='let item of camp_all' >
@@ -60,7 +60,7 @@
     <br>
     <br>
     <div>
-      <label class="float-center">Is there any Sub Campaign to this Sub Campaign</label>
+      <label class="float-center">Is there any Sponsorship to this Sub Campaign</label>
     <form action="">
         <input type="radio" [(ngModel)]="model" id="true"  name="ischild" value="true">True<br>
         <input type="radio" [(ngModel)]="model"  id="false" name="ischild" value="false">False
