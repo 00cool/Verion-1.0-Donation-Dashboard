@@ -1,9 +1,15 @@
 <html>
 
 <body>
-
+<br>
   <div class="row" style="text-align:center;margin-top: 100px;">
     <div class="col s12">
+        <!-- <h3>Select your Campaign</h3><br>
+        <select class="select" id="camp" (change)="showSubCamp()" placeholder="select Campaign">
+          <option value="" disabled selected>Select your option</option>
+          <option *ngFor='let item of campaign | async' id={{item.name}}>{{item.name}}</option>
+        </select> -->
+        
         <div style="width:70%;">
     
             <button class="button" style="float:right; margin-right:-60px" (click)="openModule()">Add New</button>
@@ -45,9 +51,9 @@
         <div>
           <div class="popup-inner-style width-100">
             <form action="" method="post">
-              <h5  id="h5" class="popup-heading"> Add New Campaign</h5>
+              <h5  id="h5" class="popup-heading"> Add New SubSponsorship</h5>
               <br>
-              <label class="float-center">Name of campaign</label>
+              <label class="float-center">Select your Campaign</label>
               <br>
 <select class="select" id="camp"  (change)="showsubcamp()"  placeholder="select Campaign">
   <option id='selected' value="" disabled selected>Select your option</option>

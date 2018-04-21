@@ -45,19 +45,19 @@ sponsid:string;
   constructor(public db: AngularFirestore, public router: Router) {
 
 
-    this.campaignCollection = db.collection<Campaign>('campaign_sample_1');
-    this.campaign = db.collection('campaign_sample_1').valueChanges();
+    this.campaignCollection = db.collection<Campaign>('campaign_sample');
+    this.campaign = db.collection('campaign_sample').valueChanges();
 
 
 
-    this.sub_campaignCollection = db.collection<SubCampaign>('sub_camp_sample_1');
-    this.sub_campaign = db.collection('sub_camp_sample_1').valueChanges();
+    this.sub_campaignCollection = db.collection<SubCampaign>('sub_camp_sample');
+    this.sub_campaign = db.collection('sub_camp_sample').valueChanges();
 
-    this.sponsCollection = db.collection<Sponsorship>('sponsorhip_temp');
-    this.sponsorship = db.collection('sponsorhip_temp').valueChanges();
+    this.sponsCollection = db.collection<Sponsorship>('sponsorship');
+    this.sponsorship = db.collection('sponsorship').valueChanges();
 
-    this.subsponsCollection = db.collection<subsponsorship>('subsponsorship_temp');
-    this.Subsponsorship = db.collection('subsponsorship_temp').valueChanges();
+    this.subsponsCollection = db.collection<subsponsorship>('sub_sponsorship');
+    this.Subsponsorship = db.collection('sub_sponsorship').valueChanges();
 
     console.log(this.sponsorship);
 
@@ -65,6 +65,50 @@ sponsid:string;
 
   ngOnInit() {
   }
+
+  showSubCamp() {
+    (document.getElementById('sub_camp') as HTMLInputElement).style.display = 'block';
+    const camp = (document.getElementById('camp') as HTMLInputElement).value;
+    console.log(camp);
+    let id;
+    const res = (this.campaignCollection.ref.where('name', '==', camp).get().then(
+      function a(querySnapshot) {
+        querySnapshot.forEach(function (doc) {
+          // console.log(doc.id)
+          id = doc.id;
+          //  console.log(id)
+        });
+      }
+    )).then(() => {
+      const arr = [];
+      console.log('data---' + id);
+      this.camp_id = id;
+      console.log('this i ' + this.camp_id + ' id ' + id);
+
+      this.camp_all = [];
+
+      const query = this.sub_campaignCollection.ref.where('parent_id', '==', id);
+
+
+      // tslint:disable-next-line:no-shadowed-variable
+      return Promise.all([query.get()]).then(res => {
+        res.forEach(r => {
+          r.forEach(d => {
+            console.log('Get:', d.data().name);
+              console.log("subcampid======" + d.id);
+            this.camp_all.push(d.data());
+          });
+          // console.log(this.all_temp.pop());
+        });
+      }).then(() => 
+    {
+
+    })
+
+
+    });
+
+}
 
   openModule() {
 

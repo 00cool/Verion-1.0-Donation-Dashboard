@@ -23,8 +23,8 @@ export class NewcampaignComponent implements OnInit {
 
   constructor(db: AngularFirestore) {
 
-    this.itemsCollection = db.collection<Campaign>('campaign_sample_1');
-    this.items = db.collection('campaign_sample_1').valueChanges();
+    this.itemsCollection = db.collection<Campaign>('campaign_sample');
+    this.items = db.collection('campaign_sample').valueChanges();
 
    
    }

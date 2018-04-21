@@ -39,11 +39,11 @@ export class SponsorshipComponent implements OnInit {
 
 
 
-    this.sub_campaignCollection = db.collection<SubCampaign>('sub_camp_sample_1');
-    this.sub_campaign = db.collection('sub_camp_sample_1').valueChanges();
+    this.sub_campaignCollection = db.collection<SubCampaign>('sub_camp_sample');
+    this.sub_campaign = db.collection('sub_camp_sample').valueChanges();
 
-    this.sponsCollection = db.collection<Sponsorship>('sponsorhip_temp');
-    this.sponsorship = db.collection('sponsorhip_temp').valueChanges();
+    this.sponsCollection = db.collection<Sponsorship>('sponsorship');
+    this.sponsorship = db.collection('sponsorship').valueChanges();
 
     console.log(this.sponsorship);
 

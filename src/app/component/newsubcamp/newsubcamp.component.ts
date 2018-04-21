@@ -35,13 +35,13 @@ export class NewsubcampComponent implements OnInit {
 
   constructor(public db: AngularFirestore, public router: Router) {
 
-    this.campaignCollection = db.collection<Campaign>('campaign_sample_1');
-    this.campaign = db.collection('campaign_sample_1').valueChanges();
+    this.campaignCollection = db.collection<Campaign>('campaign_sample');
+    this.campaign = db.collection('campaign_sample').valueChanges();
 
 
 
-    this.sub_campaignCollection = db.collection<SubCampaign>('sub_camp_sample_1');
-    this.sub_campaign = db.collection('sub_camp_sample_1').valueChanges();
+    this.sub_campaignCollection = db.collection<SubCampaign>('sub_camp_sample');
+    this.sub_campaign = db.collection('sub_camp_sample').valueChanges();
 
 
   }
