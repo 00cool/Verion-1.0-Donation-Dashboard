@@ -22,6 +22,7 @@ export class SponsorshipComponent implements OnInit {
   update_data: object;
   parentid : string;
   model : boolean;
+  subcamp : any[];
 
   campaign: Observable<any[]>;
   public campaignCollection: AngularFirestoreCollection<Campaign>;
@@ -34,8 +35,8 @@ export class SponsorshipComponent implements OnInit {
 
   constructor(public db: AngularFirestore, public router: Router) {
 
-    this.campaignCollection = db.collection<Campaign>('campaign_sample_1');
-    this.campaign = db.collection('campaign_sample_1').valueChanges();
+    this.campaignCollection = db.collection<Campaign>('campaign_sample');
+    this.campaign = db.collection('campaign_sample').valueChanges();
 
 
 
@@ -74,14 +75,12 @@ export class SponsorshipComponent implements OnInit {
           //  console.log(id)
         });
       }
-    ));
-    const arr = [];
-    setTimeout(() => {
+    )).then(() => {
       console.log('data---' + id);
       this.camp_id = id;
       console.log('this i ' + this.camp_id + ' id ' + id);
 
-      this.camp_all = [];
+      this.subcamp = [];
 
       const query = this.sub_campaignCollection.ref.where('parent_id', '==', id);
 
@@ -92,24 +91,19 @@ export class SponsorshipComponent implements OnInit {
           r.forEach(d => {
             console.log('Get:', d.data().name);
 
-            this.camp_all.push(d.data().name);
+            this.subcamp.push(d.data().name);
           });
           // console.log(this.all_temp.pop());
         });
       }).then(()=>{
 
 
-        (document.getElementById('select_sub') as HTMLInputElement).style.display = 'block';
+//        (document.getElementById('select_sub') as HTMLInputElement).style.display = 'block';
 
       })
 
-     
-
-    }, 2000);
-
-   
-
-
+    })
+    
   }
 
   add()

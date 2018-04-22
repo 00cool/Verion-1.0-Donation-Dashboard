@@ -58,11 +58,11 @@
   <option *ngFor='let item of campaign | async' id={{item.name}}>{{item.name}}</option>
 </select>
 <br>
-<div id='select_sub' style="display:none">
+<div id='select_sub'>
 <label class="float-center">Select Your Sub-Campaign</label><br>
 <select class="select" id="sub_camp"  placeholder="select sub Campaign">
   <option value=""  selected>Select your option</option>
-  <option *ngFor='let item of camp_all' id={{item.name}}>{{item}}</option>
+  <option *ngFor='let item of subcamp' id={{item}}>{{item}}</option>
 </select>
 </div>
 <br>

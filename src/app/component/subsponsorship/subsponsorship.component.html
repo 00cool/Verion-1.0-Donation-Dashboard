@@ -11,7 +11,7 @@
         </select><br>
         <h3>Select your SubCampaign</h3><br>
 <select class="select" id="sub_camp_id"  (change) ="show_spons()" placeholder="select your SubCampaign">
-  <option value="" disabled selected>Select your option</option>
+  <option value=""  disabled selected>Select your option</option>
   <option *ngFor='let item of subspons ' id={{item}}>{{item}}</option>
 </select>
 <h3>Select your Sponsorship</h3><br>
@@ -69,7 +69,7 @@
               <br>
               <label class="float-center">Select your Campaign</label>
               <br>
-<select class="select" id="camp"  (change)="showsubcamp()"  placeholder="select Campaign">
+<select class="select" id="camp_id"  (change)="showsubcamp()"  placeholder="select Campaign">
   <option id='selected' value="" disabled selected>Select your option</option>
   <option *ngFor='let item of campaign | async' id={{item.name}}>{{item.name}}</option>
 </select>
