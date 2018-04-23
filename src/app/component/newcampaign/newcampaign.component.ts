@@ -17,6 +17,7 @@ export class NewcampaignComponent implements OnInit {
   isshow = false;
   description: string;
   model : boolean;
+  eventAdded: boolean = false;
   
   items: Observable<any[]>;
   private itemsCollection: AngularFirestoreCollection<Campaign>;
@@ -30,6 +31,7 @@ export class NewcampaignComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.eventAdded = false;
   }
 
   openModule() {
@@ -66,12 +68,17 @@ export class NewcampaignComponent implements OnInit {
     console.log(items)
     var add = this.itemsCollection.add(items).then((res) => {
       console.log(res);
-  location.reload(true);
+      this.eventAdded = true;
+  // location.reload(true);
 
     });
 
 
 
+  }
+
+  onContinue() {
+    location.reload(true);
   }
 
   delete() {

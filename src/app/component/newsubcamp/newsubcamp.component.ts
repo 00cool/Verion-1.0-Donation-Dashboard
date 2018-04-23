@@ -16,7 +16,7 @@ export class NewsubcampComponent implements OnInit {
 
   
    model : boolean;
-  
+  eventAdded: boolean = false;
 
   campaign: Observable<any[]>;
   public campaignCollection: AngularFirestoreCollection<Campaign>;
@@ -48,6 +48,7 @@ export class NewsubcampComponent implements OnInit {
 
 
   ngOnInit() {
+    this.eventAdded = false;
   }
 
   addsubcamp()
@@ -74,14 +75,14 @@ export class NewsubcampComponent implements OnInit {
 
       console.log(this.sub_campaignCollection.add(item).then(() => {
         //    load code
-        location.reload(true);
-      }))
-
-
-   
-    
+        this.eventAdded = true;
+      }))  
     
 
+  }
+
+  onContinue() {
+    location.reload(true);
   }
 
   showSubCamp() {

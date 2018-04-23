@@ -32,7 +32,7 @@ export class SubsponsorshipComponent implements OnInit {
 model : boolean;
 parentid : string;
 sponsid:string;
-
+  eventAdded: boolean = false;
 
   campaign: Observable<any[]>;
   public campaignCollection: AngularFirestoreCollection<Campaign>;
@@ -68,6 +68,7 @@ sponsid:string;
    }
 
   ngOnInit() {
+    this.eventAdded = false;
   }
 
   showSubCamp() {
@@ -429,8 +430,8 @@ show_spons()
           const items : subsponsorship = {name : name_spon, amount:amount ,parent_id : this.sponsid};
           console.log(items);
           this.subsponsCollection.add(items).then((res) => {
-            console.log(res);
-            location.reload(true);
+            // console.log(res);
+            this.eventAdded = true;
            
           })
         })
@@ -438,7 +439,9 @@ show_spons()
     }
 
 
-   
+  onContinue() {
+    location.reload(true);
+  }   
   
 
    update()
