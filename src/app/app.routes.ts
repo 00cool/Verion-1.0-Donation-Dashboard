@@ -5,6 +5,7 @@ import { SelectTempleComponent } from "./component/select-temple/select-temple.c
 import { SelectDesignationComponent } from "./component/select-designation/select-designation.component";
 import { LoginComponent } from "./component/login/login.component";
 import { HomeComponent } from "./component/home/home.component";
+import { CountryComponent } from "./component/country/country.component";
 
 
 
@@ -13,6 +14,7 @@ import { HomeComponent } from "./component/home/home.component";
 
 export const router: Routes =[
     {path:'', component: SelectTempleComponent},
+    {path:'country', component: CountryComponent},
     {path:'select_designation/:countrytemple', component: SelectDesignationComponent},
     {path:'login/:desg', component: LoginComponent},
     {path:'home', component: HomeComponent},

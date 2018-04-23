@@ -37,7 +37,7 @@
     <th align="center" class="td-css width-20"  > Amount </th>
     <th align="center" class="width-20" colspan="2"> Manage </th>
   </tr>
-        <tr *ngFor='let item of Displaydata '>
+        <tr *ngFor='let item of Displaydata'>
           <td align="center"  class="td-css width-25" >{{item.name}} </td>
           <td align="center"  class="td-css width-25">{{item.amount}} </td>
           <td align="center" class="width-20">
@@ -78,7 +78,7 @@
 <label class="float-center">Select Your Sub-Campaign</label>
 <br>
 <select class="select" id="sub_camp" (change)="showsponsorship()"  placeholder="select sub Campaign">
-  <option value="" disabled selected>Select your option</option>
+  <option value="" disabled selected hidden>Select your option</option>
   <option *ngFor='let item of camp_all' id={{item.name}}>{{item}}</option>
 </select>
 </div>

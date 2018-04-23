@@ -20,12 +20,16 @@ export class CountryComponent implements OnInit {
   isvalid=false;
   edit_country:string;
 
+  res : any;
+
   constructor(public db: AngularFirestore) {
     this.itemsCollection = db.collection<Country>('country_temp');
     this.items = db.collection('country_temp').valueChanges();
 
   }
   ngOnInit() {
+
+   this.res =  this.itemsCollection.ref.where('name','==','us');
   }
 
   addcountry() {

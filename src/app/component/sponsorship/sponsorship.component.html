@@ -2,23 +2,35 @@
 
 <body>
 
-  <div class="row" style="text-align:center;margin-top: 100px;">
+  <div class="row" style="text-align:center;margin-top: 50px;">
     <div class="col s12">
-        <div style="width:70%;">
-    
+        <h3>Select your Campaign</h3><br>
+        <select class="select" id="camp" (change)="showSubCamp()" placeholder="select Campaign">
+          <option value="" disabled selected>Select your option</option>
+          <option *ngFor='let item of campaign | async' id={{item.name}}>{{item.name}}</option>
+        </select><br>
+        <h3>Select your SubCampaign</h3><br>
+        <select class="select" id="sub_camp_id"  (change) ="showdata()" placeholder="select your SubCampaign">
+          <option value=""  disabled selected>Select your option</option>
+          <option *ngFor='let item of subspons ' id={{item}}>{{item}}</option>
+        </select>
+        
+            <div id="tabledata" style="display:none">
+                <div style="width:70%;">
             <button class="button" style="float:right; margin-right:-60px" (click)="openModule()">Add New</button>
             <br>
-            </div>
+            
       <!-- <img src="./src/../../../../assets/img/Radhakrishna.jpg" width="20%" style="text-align:center;" /> -->
 <br>
 <br>
+
 <table class="shadow-effect table-css">
   <tr class="shadow-effect"  style="border-bottom: 0.3px solid #cccccc; text-align:center">
     <th align="center" class="td-css width-20"  > Name of the Sponsorship </th>
     <th align="center" class="td-css width-20"  > Is there any Sub Sponsorship to this Sponsorship </th>
     <th align="center" class="width-20" colspan="2"> Manage </th>
   </tr>
-        <tr *ngFor='let item of sponsorship | async'>
+        <tr *ngFor='let item of Displaydata'>
           <td align="center"  class="td-css width-25" >{{item.name}} </td>
           <td align="center"  class="td-css width-25">{{item.isChild}} </td>
           <td align="center" class="width-20">
@@ -36,7 +48,8 @@
 
         </tr>
       </table>
-
+        </div>
+        </div>
 
       <br>
       <br>
@@ -53,7 +66,7 @@
               <h5  id="h5" class="popup-heading"> Add New Sponsorship</h5>
               <br>
               <label class="float-center">Select Your Camapign</label><br>
-<select class="select" id="camp"  (change)="showsubcamp()"  placeholder="select Campaign">
+<select class="select" id="camp_id"  (change)="showsubcamp()"  placeholder="select Campaign">
   <option id='selected' value="" disabled selected>Select your option</option>
   <option *ngFor='let item of campaign | async' id={{item.name}}>{{item.name}}</option>
 </select>

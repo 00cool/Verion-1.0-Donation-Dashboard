@@ -23,6 +23,8 @@ export class SponsorshipComponent implements OnInit {
   parentid : string;
   model : boolean;
   subcamp : any[];
+  subspons : any[];
+  Displaydata : any[];
 
   campaign: Observable<any[]>;
   public campaignCollection: AngularFirestoreCollection<Campaign>;
@@ -56,11 +58,159 @@ export class SponsorshipComponent implements OnInit {
   openModule() {
 
     document.getElementById('myModal').style.display = 'block';
+
+    var campname =  (document.getElementById('camp') as HTMLInputElement).value;
+ (document.getElementById('camp_id') as HTMLInputElement).value = campname;
+ var subcamaignname = (document.getElementById('sub_camp_id') as HTMLInputElement).value;
+
+ var sub_select = (document.getElementById('sub_camp'));
+ var options = (document.createElement('option'));
+ options.text = subcamaignname;
+ options.selected = true;
+ options.hidden = true;
+ sub_select.appendChild(options);
+ console.log('options ' + options);
   }
   spanClick() {
     document.getElementById('myModal').style.display = 'none';
 
   }
+  showSubCamp() {
+    // (document.getElementById('sub_camp') as HTMLInputElement).style.display = 'block';
+     
+    
+    const camp = (document.getElementById('camp') as HTMLInputElement).value;
+     
+     console.log(camp);
+     let id;
+     const res = (this.campaignCollection.ref.where('name', '==', camp).get().then(
+       function a(querySnapshot) {
+         querySnapshot.forEach(function (doc) {
+           // console.log(doc.id)
+           id = doc.id;
+             console.log(id)
+         });
+       }
+     )).then(() => {
+       console.log(id);
+       const ans = (this.sub_campaignCollection.ref.where('parent_id', '==',id ))
+       this.subspons = [];
+       return Promise.all([ans.get()]).then(res => {
+         res.forEach(r => {
+           r.forEach(d => {
+             console.log('Get:', d.data().name);
+             
+             this.subspons.push(d.data().name);
+           });
+           // console.log(this.all_temp.pop());
+         });
+       }).then(()=>{
+  
+         var camp1 = (document.getElementById('sub_camp_id'));
+         var options = (document.createElement('option'));
+         options.text = "Select your option";
+         options.hidden = true;
+         options.selected = true;
+         camp1.appendChild(options);
+ 
+         console.log('sponship ==============');
+         var spons_select = (document.getElementById('sub_camp_id'));
+         var options = (document.createElement('option'));
+         options.text = "Select your option";
+         options.selected = true;
+         options.hidden = true;
+         spons_select.appendChild(options);
+        //  console.log('options ' + options);
+ 
+       })
+       
+ 
+     });
+ 
+ }
+ showdata()
+{
+  console.log("in show data")
+  let id
+  var subcampids = (document.getElementById('sub_camp_id') as HTMLInputElement).value;
+   console.log("data" + subcampids);
+   //console.log("subsponsorid" + this.subsponsid);
+   const res = (this.sub_campaignCollection.ref.where('name', '==', subcampids).get().then(
+    function a(querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        // console.log(doc.id)
+        id = doc.id;
+          console.log(id)
+      });
+    }
+  )).then(() => {
+   // (document.getElementById('sponsorshipid') as HTMLInputElement).value
+    this.Displaydata = [];
+console.log(subcampids);
+    console.log(id);
+   const res = (this.sponsCollection.ref.where('parent_id', '==', id)).get().then(
+    (querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        // console.log(doc.id)
+        id = doc.id;
+        console.log(doc.data().name);
+          console.log(id);
+          this.Displaydata.push(doc.data());
+      });
+    }
+  ).then(() => 
+{
+  (document.getElementById('tabledata') as HTMLInputElement).style.display = 'block'
+})
+  })
+}
+  // showsubcamp() {
+  //   // (document.getElementById('sub_camp') as HTMLInputElement).style.display = 'block';
+  //    const camp = (document.getElementById('camp') as HTMLInputElement).value;
+  //    console.log(camp);
+  //    let id;
+  //    const res = (this.campaignCollection.ref.where('name', '==', camp).get().then(
+  //      function a(querySnapshot) {
+  //        querySnapshot.forEach(function (doc) {
+  //          // console.log(doc.id)
+  //          id = doc.id;
+  //          //  console.log(id)
+  //        });
+  //      }
+  //    ));
+  //    const arr = [];
+  //    setTimeout(() => {
+  //      console.log('data---' + id);
+  //      this.camp_id = id;
+  //      console.log('this i ' + this.camp_id + ' id ' + id);
+ 
+  //      this.camp_all = [];
+ 
+  //      const query = this.sub_campaignCollection.ref.where('parent_id', '==', id);
+ 
+ 
+  //      // tslint:disable-next-line:no-shadowed-variable
+  //      return Promise.all([query.get()]).then(res => {
+  //        res.forEach(r => {
+  //          r.forEach(d => {
+  //            console.log('Get:', d.data().name);
+ 
+  //            this.camp_all.push(d.data().name);
+  //          });
+  //          // console.log(this.all_temp.pop());
+  //        });
+  //      }).then(()=>{
+ 
+ 
+  //        (document.getElementById('select_sub') as HTMLInputElement).style.display = 'block';
+ 
+  //      })
+ 
+      
+ 
+  //    }, 2000);
+ 
+  //  }
 
   showsubcamp() {
    // (document.getElementById('sub_camp') as HTMLInputElement).style.display = 'block';
@@ -183,8 +333,9 @@ this.parentid = d.id;
         });
       }
     )).then(()=> {
-      this.sponsCollection.doc(id).delete().then(function re() {
-        location.reload(true);
+      this.sponsCollection.doc(id).delete().then(() => {
+        this.showdata();
+      //  location.reload(true);
       });
     });
       

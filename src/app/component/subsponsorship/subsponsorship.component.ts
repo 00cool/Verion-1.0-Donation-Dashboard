@@ -101,18 +101,21 @@ sponsid:string;
         });
       }).then(()=>{
  
-        // var camp1 = (document.getElementById('sub_camp_id'));
-        // var options = (document.createElement('option'));
-        // options.text = "Select your option";
-        // options.disabled = true;
-        // options.selected = true;
-        // camp1.appendChild(options);
+        var camp1 = (document.getElementById('sub_camp_id'));
+        var options = (document.createElement('option'));
+        options.text = "Select your option";
+        options.hidden = true;
+        options.selected = true;
+        camp1.appendChild(options);
 
-       //var opt= document.getElementById('sub_camp_id')
-       
-  //    var a= (document.getElementById("0") as HTMLInputElement);
-        
-      //  (document.getElementById('sub_camp_id') as HTMLInputElement).style.display = 'block';
+        console.log('sponship ==============');
+        var spons_select = (document.getElementById('sponsorshipid'));
+        var options = (document.createElement('option'));
+        options.text = "Select your option";
+        options.selected = true;
+        options.hidden = true;
+        spons_select.appendChild(options);
+        console.log('options ' + options);
 
       })
       
@@ -220,13 +223,47 @@ show_spons()
       });
     }
   ));
-  })
+  }).then(()=>{
+
+    console.log('sponship ==============');
+    var spons_select = (document.getElementById('sponsorshipid'));
+    var options = (document.createElement('option'));
+    options.text = "Select your option";
+    options.selected = true;
+    options.hidden = true;
+    spons_select.appendChild(options);
+    console.log('options ' + options);
+
+  });
 
 }
 
   openModule() {
 
     document.getElementById('myModal').style.display = 'block';
+ var campname =  (document.getElementById('camp') as HTMLInputElement).value;
+ (document.getElementById('camp_id') as HTMLInputElement).value = campname;
+ var subcamaignname = (document.getElementById('sub_camp_id') as HTMLInputElement).value;
+ var sponsorshipname = (document.getElementById('sponsorshipid') as HTMLInputElement).value;
+
+ var sub_select = (document.getElementById('sub_camp'));
+ var options = (document.createElement('option'));
+ options.text = subcamaignname;
+ options.selected = true;
+ options.hidden = true;
+ sub_select.appendChild(options);
+ console.log('options ' + options);
+
+ var spons_select = (document.getElementById('spon_select'));
+ var options = (document.createElement('option'));
+ options.text = sponsorshipname;
+ options.selected = true;
+ options.hidden = true;
+ spons_select.appendChild(options);
+ console.log('options ' + options);
+ 
+ 
+
   }
   spanClick() {
     document.getElementById('myModal').style.display = 'none';
@@ -317,13 +354,22 @@ show_spons()
              console.log('Get:', d.data().name);
  
              this.spons_all.push(d.data().name);
+
            });
            // console.log(this.all_temp.pop());
          });
        }).then(()=>{
  
+        // console.log('sponship ==============');
+        // var spons_select = (document.getElementById('spon_select'));
+        // var options = (document.createElement('option'));
+        // options.text = "Select your option";
+        // options.disabled = true;
+        // options.selected = true;
+        // spons_select.appendChild(options);
+        // console.log('options ' + options);
  
-         (document.getElementById('select_sub') as HTMLInputElement).style.display = 'block';
+        //  (document.getElementById('select_sub') as HTMLInputElement).style.display = 'block';
  
        })
  
@@ -384,7 +430,7 @@ show_spons()
           console.log(items);
           this.subsponsCollection.add(items).then((res) => {
             console.log(res);
-         //   location.reload(true);
+            location.reload(true);
            
           })
         })
@@ -440,19 +486,30 @@ location.reload(true);
     let val;
     val = event.srcElement.id;
     // const item: Taplearn = { desc: val };
-    let id: any;
+    let id;
+    var data;
     const res = (this.subsponsCollection.ref.where('name', '==', val).get().then(
       function a(querySnapshot) {
         querySnapshot.forEach(function (doc) {
           console.log(doc.id);
           id = doc.id;
+
+          data = doc.data();
+
         });
       }
     )).then(()=> {
-      this.subsponsCollection.doc(id).delete().then(function re() {
+      this.subsponsCollection.doc(id).delete().then((res) => {
+        this.showdata();
        // location.reload(true);
       });
+
+      
+      
+    //  console.log(del);
     });
+
+   
       
   }
 

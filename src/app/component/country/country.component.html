@@ -3,7 +3,7 @@
   </head>
   
   <table border="2">
-    <tr *ngFor='let item of items | async' >
+    <tr *ngFor='let item of res | async' >
       <td><input type="text" value={{item.name}} readonly></td>
       <td ><button value={{item.name}} id={{item.name}}  (click)=" deleteTapLearn(this.id)" >delete</button> </td>
       <td ><button value={{item.name}} id={{item.name}}  (click)="show(this.id)" >edit</button> </td>
