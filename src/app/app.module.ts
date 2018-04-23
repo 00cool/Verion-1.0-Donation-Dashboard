@@ -44,6 +44,7 @@ import { NewcampaignComponent } from './component/newcampaign/newcampaign.compon
 import { NewsubcampComponent } from './component/newsubcamp/newsubcamp.component';
 import { SponsorshipComponent } from './component/sponsorship/sponsorship.component';
 import { SubsponsorshipComponent } from './component/subsponsorship/subsponsorship.component';
+import { BeaconComponent } from './component/beacon/beacon.component';
 
 
 
@@ -76,7 +77,9 @@ const appRoutes: Routes =  [
     {path:'newcamp', component:NewcampaignComponent,canActivate:[AuthGuard], outlet:'sidebar'},
     {path:'newsubcamp', component : NewsubcampComponent,canActivate: [AuthGuard] ,outlet : 'sidebar'},
     {path:'sponsorship',component : SponsorshipComponent,canActivate:[AuthGuard],outlet: 'sidebar'},
-    {path : 'subsponsorship' , component : SubsponsorshipComponent,canActivate:[AuthGuard] , outlet: 'sidebar'}
+    {path : 'subsponsorship' , component : SubsponsorshipComponent,canActivate:[AuthGuard] , outlet: 'sidebar'},
+    {path : 'beacon' , component : BeaconComponent,canActivate:[AuthGuard] , outlet: 'sidebar'}
+
    ]
 
 },
@@ -117,6 +120,8 @@ const appRoutes: Routes =  [
     SponsorshipComponent,
 
     SubsponsorshipComponent,
+
+    BeaconComponent,
 
 
 
