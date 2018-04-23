@@ -26,6 +26,7 @@ export class SponsorshipComponent implements OnInit {
   subspons : any[];
   Displaydata : any[];
   eventAdded: boolean = false;
+  eventUpdated: boolean = false;
 
   campaign: Observable<any[]>;
   public campaignCollection: AngularFirestoreCollection<Campaign>;
@@ -55,6 +56,7 @@ export class SponsorshipComponent implements OnInit {
 
 
   ngOnInit() {
+    this.eventUpdated =false;
     this.eventAdded = false;
   }
   openModule() {
@@ -378,8 +380,8 @@ const res = (this.sub_campaignCollection.ref.where('name', '==', sub_name).get()
   console.log(item);
   console.log(this.update_id);
   this.sponsCollection.doc(this.update_id).update(item).then(() => {
-
-    location.reload(true);
+    this.eventUpdated = true;
+    this.eventAdded = true;
   });
   
   });
