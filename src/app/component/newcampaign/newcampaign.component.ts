@@ -18,7 +18,6 @@ export class NewcampaignComponent implements OnInit {
   description: string;
   model : boolean;
   eventAdded: boolean = false;
-  eventUpdated: boolean = false;
   
   items: Observable<any[]>;
   private itemsCollection: AngularFirestoreCollection<Campaign>;
@@ -32,7 +31,6 @@ export class NewcampaignComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.eventUpdated = false;
     this.eventAdded = false;
   }
 
@@ -137,7 +135,7 @@ console.log("iddddddd" + id);
       )).then(() => { 
         (document.getElementById('cat_name') as HTMLInputElement).value = data.name;
         
-        (document.getElementById('add') as HTMLInputElement).innerHTML = 'Update';
+        (document.getElementById('add') as HTMLInputElement).innerHTML = 'update';
         (document.getElementById('h5') as HTMLInputElement).innerHTML = 'Update Campaign';
         this.update_id = id;
         console.log(this.update_id);
@@ -159,9 +157,7 @@ console.log("iddddddd" + id);
         const item: Campaign = { name: val ,isChild:this.model};
         console.log(this.update_id);
         console.log(this.itemsCollection.doc(this.update_id).update(item).then(() => {
-          // location.reload(true);
-          this.eventUpdated = true;
-          this.eventAdded = true;
+          location.reload(true);
         }));
     }
 
