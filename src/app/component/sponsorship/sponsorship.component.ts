@@ -26,6 +26,8 @@ export class SponsorshipComponent implements OnInit {
   subspons : any[];
   Displaydata : any[];
   eventAdded: boolean = false;
+  eventUpdated: boolean = false;
+  hideTable: boolean = true;
 
   campaign: Observable<any[]>;
   public campaignCollection: AngularFirestoreCollection<Campaign>;
@@ -55,6 +57,7 @@ export class SponsorshipComponent implements OnInit {
 
 
   ngOnInit() {
+    this.eventUpdated =false;
     this.eventAdded = false;
   }
   openModule() {
@@ -78,8 +81,11 @@ export class SponsorshipComponent implements OnInit {
 
   }
   showSubCamp() {
-  //  (document.getElementById('sub_camp_id') as HTMLInputElement).style.display = 'block';
-    const camp = (document.getElementById('camp') as HTMLInputElement).value;     
+    // (document.getElementById('sub_camp') as HTMLInputElement).style.display = 'block';
+     
+    
+    const camp = (document.getElementById('camp') as HTMLInputElement).value;
+     this.hideTable = true;
      console.log(camp);
      let id;
      const res = (this.campaignCollection.ref.where('name', '==', camp).get().then(
@@ -129,15 +135,15 @@ export class SponsorshipComponent implements OnInit {
  }
  showdata()
 {
+      this.hideTable = false;
   console.log("in show data")
   let id
   var subcampids = (document.getElementById('sub_camp_id') as HTMLInputElement).value;
    console.log("data" + subcampids);
    //console.log("subsponsorid" + this.subsponsid);
    const res = (this.sub_campaignCollection.ref.where('name', '==', subcampids).get().then(
-     
-    (querySnapshot) =>{
-      querySnapshot.forEach((doc) => {
+    function a(querySnapshot) {
+      querySnapshot.forEach(function (doc) {
         // console.log(doc.id)
         id = doc.id;
           console.log(id)
@@ -376,8 +382,8 @@ const res = (this.sub_campaignCollection.ref.where('name', '==', sub_name).get()
   console.log(item);
   console.log(this.update_id);
   this.sponsCollection.doc(this.update_id).update(item).then(() => {
-
-    location.reload(true);
+    this.eventUpdated = true;
+    this.eventAdded = true;
   });
   
   });

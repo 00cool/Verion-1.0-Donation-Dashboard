@@ -17,6 +17,7 @@ export class NewsubcampComponent implements OnInit {
   
    model : boolean;
   eventAdded: boolean = false;
+  eventUpdated: boolean = false;
 
   campaign: Observable<any[]>;
   public campaignCollection: AngularFirestoreCollection<Campaign>;
@@ -48,6 +49,7 @@ export class NewsubcampComponent implements OnInit {
 
 
   ngOnInit() {
+    this.eventUpdated =false;
     this.eventAdded = false;
   }
 
@@ -91,14 +93,11 @@ export class NewsubcampComponent implements OnInit {
     console.log(camp);
     let id;
     const res = (this.campaignCollection.ref.where('name', '==', camp).get().then(
-       (querySnapshot1) =>{
-         //console.log("in query snapshot");
-        querySnapshot1.forEach((doc) =>{
-        //  console.log("in qyuerysnapshot foreach ");
-          console.log(doc.id);
+      function a(querySnapshot) {
+        querySnapshot.forEach(function (doc) {
+          // console.log(doc.id)
           id = doc.id;
-         // console.log(doc.data());
-            console.log(id)
+          //  console.log(id)
         });
       }
     )).then(() => {
@@ -154,8 +153,8 @@ else{
 
 const item : SubCampaign = {name: name , isChild :check,parent_id : this.camp_id}
 this.sub_campaignCollection.doc(this.update_id).update(item).then(() => {
-
-  window.location.reload();
+  this.eventUpdated = true;
+  this.eventAdded = true;
 });
 
 }
