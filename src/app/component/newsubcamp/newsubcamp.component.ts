@@ -93,11 +93,14 @@ export class NewsubcampComponent implements OnInit {
     console.log(camp);
     let id;
     const res = (this.campaignCollection.ref.where('name', '==', camp).get().then(
-      function a(querySnapshot) {
-        querySnapshot.forEach(function (doc) {
-          // console.log(doc.id)
+       (querySnapshot1) =>{
+         //console.log("in query snapshot");
+        querySnapshot1.forEach((doc) =>{
+        //  console.log("in qyuerysnapshot foreach ");
+          console.log(doc.id);
           id = doc.id;
-          //  console.log(id)
+         // console.log(doc.data());
+            console.log(id)
         });
       }
     )).then(() => {

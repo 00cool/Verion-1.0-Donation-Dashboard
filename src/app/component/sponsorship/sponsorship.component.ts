@@ -80,11 +80,8 @@ export class SponsorshipComponent implements OnInit {
 
   }
   showSubCamp() {
-    // (document.getElementById('sub_camp') as HTMLInputElement).style.display = 'block';
-     
-    
-    const camp = (document.getElementById('camp') as HTMLInputElement).value;
-     
+  //  (document.getElementById('sub_camp_id') as HTMLInputElement).style.display = 'block';
+    const camp = (document.getElementById('camp') as HTMLInputElement).value;     
      console.log(camp);
      let id;
      const res = (this.campaignCollection.ref.where('name', '==', camp).get().then(
@@ -140,8 +137,9 @@ export class SponsorshipComponent implements OnInit {
    console.log("data" + subcampids);
    //console.log("subsponsorid" + this.subsponsid);
    const res = (this.sub_campaignCollection.ref.where('name', '==', subcampids).get().then(
-    function a(querySnapshot) {
-      querySnapshot.forEach(function (doc) {
+     
+    (querySnapshot) =>{
+      querySnapshot.forEach((doc) => {
         // console.log(doc.id)
         id = doc.id;
           console.log(id)
