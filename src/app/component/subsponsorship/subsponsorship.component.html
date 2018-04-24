@@ -22,7 +22,7 @@
                <option value="" disabled selected>Select your option</option>
                <option *ngFor='let item of subsponsorship ' id={{item}}>{{item}}</option>
             </select>
-            <div id="tabledata" style="display:none">
+            <div id="tabledata" style="display:none" *ngIf="!hideTable">
                <div style="width:70%;">
                   <button class="button" style="float:right; margin-right:-60px" (click)="openModule()">Add New</button>
                   <br>
@@ -99,7 +99,8 @@
                   <div *ngIf="eventAdded" style="text-align: center; margin-top: 50px;">
                      <span style="border: 2px solid #008cba; padding: 5px;  border-radius: 50%; font-size: 20px;">&#10004;</span>
                      <br><br>
-                     <h3>SubSponsorship added successfully!</h3>
+                     <h3 *ngIf="eventUpdated">Sub Sponsorship added successfully!</h3>
+                     <h3 *ngIf="!eventUpdated">Sub Sponsorship updated successfully!</h3>
                      <button class="button" (click)="onContinue()">Continue</button>
                    </div>
                </div>

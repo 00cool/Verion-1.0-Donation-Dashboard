@@ -33,6 +33,8 @@ model : boolean;
 parentid : string;
 sponsid:string;
   eventAdded: boolean = false;
+  eventUpdated: boolean = false;
+  hideTable: boolean = true;
 
   campaign: Observable<any[]>;
   public campaignCollection: AngularFirestoreCollection<Campaign>;
@@ -68,12 +70,13 @@ sponsid:string;
    }
 
   ngOnInit() {
+    this.eventUpdated = false;
     this.eventAdded = false;
   }
 
   showSubCamp() {
    // (document.getElementById('sub_camp') as HTMLInputElement).style.display = 'block';
-    
+    this.hideTable = true;
    
    const camp = (document.getElementById('camp') as HTMLInputElement).value;
     
@@ -127,6 +130,7 @@ sponsid:string;
 
 showdata()
 {
+  this.hideTable = false;
   console.log("in show data")
   let id
   var subcampids = (document.getElementById('sponsorshipid') as HTMLInputElement).value;
@@ -477,7 +481,9 @@ show_spons()
   const item : subsponsorship = {name: name , amount : amount,parent_id :sponsorshipid};
   console.log(item);
   this.subsponsCollection.doc(subsponsid).update(item).then(() => {
-location.reload(true);
+// location.reload(true);
+  this.eventUpdated = true;
+  this.eventAdded = true;
   });
 });
 
