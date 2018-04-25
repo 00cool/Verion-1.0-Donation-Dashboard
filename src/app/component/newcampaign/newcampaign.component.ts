@@ -50,7 +50,7 @@ export class NewcampaignComponent implements OnInit {
     console.log('calling add funct');
     const val = (document.getElementById('cat_name') as HTMLInputElement).value;
   //  const ischild= (document.getElementById('ischild') as HTMLInputElement).value
-
+    val.trim();
     console.log(this.model);
     var ans = this.model;
     if(this.model)
@@ -155,6 +155,7 @@ console.log("iddddddd" + id);
     update() {
       console.log('Calling  update');
       const val = (document.getElementById('cat_name') as HTMLInputElement).value;
+      val.trim();
       console.log(this.model);
         const item: Campaign = { name: val ,isChild:this.model};
         console.log(this.update_id);

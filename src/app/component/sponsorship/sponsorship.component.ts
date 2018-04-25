@@ -265,7 +265,7 @@ console.log(subcampids);
   add()
   {
     var name_spon =(document.getElementById('sponsorship') as HTMLInputElement).value
-
+name_spon.trim();
     console.log(this.model);
    //this.model;
     if(this.model)
@@ -276,7 +276,10 @@ console.log(subcampids);
     {
       check = false;
     }
+    
     var name =(document.getElementById('sub_camp') as HTMLInputElement).value
+    name.trim();
+
     const query = this.sub_campaignCollection.ref.where('name', '==',name);
 
 
@@ -310,6 +313,7 @@ this.parentid = d.id;
   
     const val = (document.getElementById('add_btn') as HTMLInputElement).innerHTML;
     console.log(val);
+
     // console.log(val.localeCompare("ADD"));
     console.log('ADD'.localeCompare('ADD'));
     if (0 === val.localeCompare('ADD')) {
@@ -360,6 +364,8 @@ this.parentid = d.id;
   const name = (document.getElementById('sponsorship') as HTMLInputElement).value;
   const sub_name = (document.getElementById('sub_camp') as HTMLInputElement).value;
   console.log(name);
+  name.trim();
+  sub_name.trim();
 
 console.log(this.model);
 

@@ -57,8 +57,9 @@ export class NewsubcampComponent implements OnInit {
   {
     const camp = (document.getElementById('camp') as HTMLInputElement).value;
     console.log(camp);
+    camp.trim();
     var name_val = (document.getElementById('name') as HTMLInputElement).value;
-   
+   name_val.trim();
    console.log(this.model);
    //this.model;
     if(this.model)
@@ -89,8 +90,9 @@ export class NewsubcampComponent implements OnInit {
 
   showSubCamp() {
     (document.getElementById('sub_camp') as HTMLInputElement).style.display = 'block';
-    const camp = (document.getElementById('camp') as HTMLInputElement).value;
+    var camp = (document.getElementById('camp') as HTMLInputElement).value;
     console.log(camp);
+    camp.trim();
     let id;
     const res = (this.campaignCollection.ref.where('name', '==', camp).get().then(
       function a(querySnapshot) {
@@ -135,7 +137,7 @@ update()
   let id;
   const name = (document.getElementById('name') as HTMLInputElement).value;
 console.log(name);
-
+name.trim();
 // if(this.model)
 // {
 //   check= true;

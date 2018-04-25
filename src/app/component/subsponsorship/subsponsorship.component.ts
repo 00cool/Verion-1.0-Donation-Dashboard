@@ -391,9 +391,10 @@ show_spons()
    {
     var name_spon =(document.getElementById('sub_sponsorship') as HTMLInputElement).value
 
-  
+  name_spon.trim();
 
       var name =(document.getElementById('sub_camp') as HTMLInputElement).value
+      name.trim();
       const query = this.sub_campaignCollection.ref.where('name', '==',name);
   
   
@@ -458,6 +459,11 @@ show_spons()
     const amount = (document.getElementById('amount') as HTMLInputElement).value;
     const sub_name = (document.getElementById('sub_camp') as HTMLInputElement).value;
     const subspons_name = (document.getElementById('spon_select') as HTMLInputElement).value;
+    name.trim();
+    amount.trim();
+    sub_name.trim();
+    subspons_name.trim();
+
 
     const res = (this.sponsCollection.ref.where('name', '==', subspons_name).where('parent_id','==',this.subsponsid).get().then(
       function a(querySnapshot) {
