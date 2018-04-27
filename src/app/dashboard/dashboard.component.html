@@ -37,45 +37,16 @@
             <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['subsponsorship'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
               SubSponsorship</button>
          <br>
-         <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['beacon'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
+         <!-- <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['beacon'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
           Beacon Message</button>
+          <br> -->
+          <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['event'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
+           Event</button>
      
-          <!-- <button [routerLink]="/register"class="side_button" style="font:bold; color:#868686; font-size:15px;">
-            staff </button> -->
-
-        <!-- <div class="dropdown1">
-          <button (click)="myFunction()" class="dropbtn1 shadow-effect">Analytics</button>
-          <div id="myDropdown1" class="dropdown-content1 shadow-effect">
-            <button class="button shadow-effect" [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['donationpercamp'] } }]" style="font:bold; color:#868686; font-size:15px;">Per Campaign</button>
-            <br>
-            <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['timeseries'] } }]" class="button shadow-effect" style="font:bold; color:#868686; font-size:15px;">
-              Time series </button>
-            <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['heatmap'] } }]" class="button shadow-effect" style="font:bold; color:#868686; font-size:15px;">
-              Uk HeatMap </button>
-          </div>
-        </div> -->
+       
       </div>
       <br>
-      <!-- <div style="float: right;width:8%;margin-top:90px;text-align: center;margin-left: 0px;">
-        <div class="dropdown1">
-          <button (click)="myFunction2()" class="dropbtn1 shadow-effect">Manage Application</button>
-          <div id="myDropdown2" class="dropdown-content1">
-            <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['campaign'] } }]" class="button" style="font:bold; color:#868686; font-size:15px;">
-              Campaign</button>
-            <br>
-            <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['tapandlearn'] } }]" class="button" style="font:bold; color:#868686; font-size:15px;">
-              tap & Learn </button>
-            <br>
-            <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['home'] } }]" class="button" style="font:bold; color:#868686; font-size:15px;">
-              Event </button>
-            <br>
-            <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['register'] } }]" class="button" style="font:bold; color:#868686; font-size:15px;">
-              staff </button>
-
-
-          </div>
-        </div>
-      </div> -->
+    
 
     </mat-sidenav>
 

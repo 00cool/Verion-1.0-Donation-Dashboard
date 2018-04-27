@@ -45,17 +45,23 @@ import { NewsubcampComponent } from './component/newsubcamp/newsubcamp.component
 import { SponsorshipComponent } from './component/sponsorship/sponsorship.component';
 import { SubsponsorshipComponent } from './component/subsponsorship/subsponsorship.component';
 import { BeaconComponent } from './component/beacon/beacon.component';
-
-
-
+import { EventComponent } from './component/event/event.component';
+import {MatSelectModule} from '@angular/material/select';
+import {  MatButtonModule, MatInputModule, MatListModule, MatPaginatorModule} from '@angular/material';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material';
+import { MatIconModule } from "@angular/material/icon";
 
 declare var require: any;
 
 
 export function highchartsFactory() {
       const hc = require('highcharts/highstock');
-      const dd = require('highcharts/modules/exporting');;
+      const dd = require('highcharts/modules/exporting');
+      const drill = require('highcharts/modules/drilldown');
+      
       dd(hc);
+      drill(hc);
       return hc;
 }
 const appRoutes: Routes =  [
@@ -78,7 +84,8 @@ const appRoutes: Routes =  [
     {path:'newsubcamp', component : NewsubcampComponent,canActivate: [AuthGuard] ,outlet : 'sidebar'},
     {path:'sponsorship',component : SponsorshipComponent,canActivate:[AuthGuard],outlet: 'sidebar'},
     {path : 'subsponsorship' , component : SubsponsorshipComponent,canActivate:[AuthGuard] , outlet: 'sidebar'},
-    {path : 'beacon' , component : BeaconComponent,canActivate:[AuthGuard] , outlet: 'sidebar'}
+    {path : 'beacon' , component : BeaconComponent,canActivate:[AuthGuard] , outlet: 'sidebar'},
+    {path: 'event' , component : EventComponent,canActivate : [AuthGuard] , outlet: 'sidebar'}
 
    ]
 
@@ -123,6 +130,8 @@ const appRoutes: Routes =  [
 
     BeaconComponent,
 
+    EventComponent,
+
 
 
 
@@ -142,6 +151,15 @@ const appRoutes: Routes =  [
     MatSidenavModule,
     MatToolbarModule,
     BrowserAnimationsModule,
+    MatListModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatIconModule,
+    MatNativeDateModule
+  
 
   ],
   providers: [

@@ -1,128 +1,58 @@
 //Install express server
 const express = require('express');
 const app = express();
-var KontaktApi = require('kontakt-node');
+var ClientOAuth2 = require('client-oauth2')
+var storeNewToken
+
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist'));
 
-var kontaktApi = new KontaktApi('uJwttohXdGxvyKqeLSHblcpiqmkPKpKp');
+var githubAuth = new ClientOAuth2({
+  clientId: '737377749098-dsrh0v2q4t20a4i4ncujaudmeu6jt9cs.apps.googleusercontent.com',
+  clientSecret: 'oa7tB-k29Vs21yhpw0HzQebJ',
+  accessTokenUri: 'https://accounts.google.com/o/oauth2/token',
+  authorizationUri: 'https://accounts.google.com/o/oauth2/auth',
+  redirectUri: 'https://developers.google.com/oauth2callback',
+  scopes: 'https://www.googleapis.com/auth/userlocation.beacon.registry'
+})
 
-
-var request = require('request');
-
-//set up the users API key
-function KontaktApi(key) {
-  this.key = key !== null ? key : null;
-  //this.beacon_endpoint = 'beacon/'; //temp deprecated resource
-  this.device_endpoint = 'device/';
-  this.base_url = 'https://api.kontakt.io/';
-  var self = this instanceof KontaktApi ? this : Object.create(KontaktApi.prototype);
-}
-
-app.get("/getdevice" ,function(res, req) {
-//get device
-KontaktApi.prototype.getDevice = function(resource, callback) {
-  var beaconId, endpoint, managerId, credentials, contact, options, byUnique, proximity,
-  major, minor; //TODO clean this up
-
-  var p = resource;
-
-  if (resource !== null) {
-    options = { uri: p,
-      json: true,
-      headers: {
-        'Accept' : 'application/vnd.com.kontakt+json; version=9',
-        'Content-Type' : 'application/x-www-form-urlencoded',
-        'Api-Key': 'uJwttohXdGxvyKqeLSHblcpiqmkPKpKp'
-      }
-    };
-  } else {
-    callback(null, 'Invalid Setting');
-  }
-
-  contact = request.get(options, function (error, response, object) {
-    if (error) { return callback(error); }
-    if (response.statusCode != 200 ) {
-      return callback(response.statusCode);
-    }
-    callback(null, object);
-  });
-
-};
-
-});
-/**
-* lists all devices
-*/
-KontaktApi.prototype.device = function (params, callback) {
-    var path = this.base_url + this.device_endpoint;
-    if (arguments.length === 1) {
-      var cb = params;
-      return this.getDevice(path, cb);
-    }
-    if ((params !== null) && typeof params === 'object') {
-      return this.getDevice(path, callback);
-    } else {
-      callback(null, 'Invalid Setting: please provide an object');
-    }
-};
-
-KontaktApi.prototype.deviceById = function (params, callback) {
-  if ((params !== null) && typeof params === 'object') {
-    if (Array.isArray(params.uniqueId) === false) {
-      var path = this.base_url + '/' + this.device_endpoint + params.uniqueId;
-      return this.getDevice(path, callback);
-    } else {
-      callback(null, 'ERROR: only request one beacon at a time');
-    }
-  } else {
-    callback(null, 'Invalid Setting: please provide an object');
-  }
-};
-
-/**
-* /beacon by proximity
-*/
-KontaktApi.prototype.beaconByProximity = function (params, callback) {
-  if ((params !== null) && typeof params === 'object') {
-    var path = this.base_url + this.beacon_endpoint + params.proximity +'/' + params.major + '/' + params.minor;
-    return this.getDevice(path, callback);
-  } else {
-    callback(null, 'Invalid Setting: please provide an object');
-  }
-};
-
-/**
-* /beacon by credentials
-*/
-KontaktApi.prototype.beaconCredentials = function (params, callback) {
-  if ((params !== null) && typeof params === 'object') {
-
-    if (Array.isArray(params.beaconId) === false) {
-      var path = this.base_url + '/' + this.beacon_endpoint + params.beaconId + '/credentials';
-      return this.getDevice(path, callback);
-    } else {
-      callback(null, 'ERROR: only request one beacon at a time');
-    }
-  } else {
-    callback(null, 'Invalid Setting: please provide an object');
-  }
-};
-
-KontaktApi.prototype.unassigned = function (params, callback) {
-  if ((params !== null) && typeof params === 'object') {
-    var path = this.base_url + this.beacon_endpoint + 'unassigned/'+ params.managerId;
-    return this.getDevice(path, callback);
-  } else {
-    callback(null, 'Invalid Setting: please provide an object');
-  }
-};
-
-//export the module
-module.exports = KontaktApi;
+// Can also just pass the raw `data` object in place of an argument.
+var token = githubAuth.createToken('access token', 'optional refresh token', 'optional token type', { data: 'raw user data' })
+ 
+// Set the token TTL.
+token.expiresIn(1234) // Seconds.
+token.expiresIn(new Date('2018-05-25')) // Date.
+ 
+// Refresh the users credentials and save the new access token and info.
+token.refresh().then(storeNewToken)
+ 
+// Sign a standard HTTP request object, updating the URL with the access token
+// or adding authorization headers, depending on token type.
+token.sign({
+  method: 'get',
+  url: 'https://accounts.google.com/o/oauth2/token'
+}) //=> { method, url,
 
 
 
+
+// window.oauth2Callback = function (uri) {
+//   githubAuth.token.getToken(uri)
+//     .then(function (user) {
+//       console.log(user) //=> { accessToken: '...', tokenType: 'bearer', ... }
+ 
+//       // Make a request to the github API for the current user.
+//       return popsicle.request(user.sign({
+//         method: 'get',
+//         url: 'https://accounts.google.com/o/oauth2/token'
+//       })).then(function (res) {
+//         console.log(res) //=> { body: { ... }, status: 200, headers: { ... } }
+//       })
+//     })
+// }
+ 
+// Open the page in a new window, then redirect back to a page that calls our global `oauth2Callback` function.
+//window.open(githubAuth.token.getUri())
 
 
 // Start the app by listening on the default Heroku port
