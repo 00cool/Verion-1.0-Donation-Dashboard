@@ -11,8 +11,10 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import {firebaseConfig} from '../environments/firebase.config';
 import { Component } from '@angular/core';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSidenavModule} from '@angular/material/sidenav';
+
+import { MatFormFieldModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CountryComponent } from './component/country/country.component';
 import { TempleComponent } from './component/temple/temple.component';
@@ -51,6 +53,10 @@ import {  MatButtonModule, MatInputModule, MatListModule, MatPaginatorModule} fr
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
 import { MatIconModule } from "@angular/material/icon";
+import { Ng5TimePickerModule } from 'ng5-time-picker';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatCardModule} from '@angular/material/card';
+
 
 declare var require: any;
 
@@ -152,14 +158,16 @@ const appRoutes: Routes =  [
     MatToolbarModule,
     BrowserAnimationsModule,
     MatListModule,
-    MatToolbarModule,
     MatButtonModule,
     MatSelectModule,
     MatInputModule,
     MatDatepickerModule,
     MatIconModule,
-    MatNativeDateModule
-  
+    MatNativeDateModule,
+    MatFormFieldModule,
+    Ng5TimePickerModule,
+    MatCardModule,
+    MatSnackBarModule,
 
   ],
   providers: [

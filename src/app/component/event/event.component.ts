@@ -13,11 +13,17 @@ export class EventComponent implements OnInit {
   constructor() { }
   events: string[] = [];
 
+  date: any;
+  time: any;
+
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
     this.events.push(`${event.value}`);
   }
 
   ngOnInit() {
   }
-
+  onButton() {
+    console.log(this.date);
+    console.log(this.time);
+  }
 }

@@ -1,25 +1,16 @@
-<mat-form-field>
-  <input matInput [matDatepicker]="picker" placeholder="Input & change events"
-         (dateInput)="addEvent('input', $event)">
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
-
-<div class="example-events">
-  <div *ngFor="let e of events">{{e}}</div>
+<div>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <button (click)="onButton()">Print date and time on Console</button>
 </div>
 
-
-
-<input mdc-datetime-picker="" date="true" time="true" type="text" id="datetime"
-placeholder="Date" show-todays-date="" min-date="date" ng-model="dateTime" class=" md-input">
-
-
-  <label>Timepicker Only</label>
-  <input mdc-datetime-picker date="false" time="true" type="text" id="time" short-time="true"
-         show-todays-date click-outside-to-close="true"
-         placeholder="Time" auto-ok="true"
-         min-date="minDate" minute-steps="1"
-         format="hh:mm a"
-         ng-change="vm.saveChange()"
-         ng-model="time">
+<div>
+	<div class="container">
+	  <form class="demo-form">
+	    <timepicker color="primary" [(userTime)]="time"></timepicker>
+	  </form>
+	</div>
+</div>
