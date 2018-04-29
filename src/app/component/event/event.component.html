@@ -4,13 +4,15 @@
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-    <button (click)="onButton()">Print date and time on Console</button>
+    <button (click)="onButton()">Print date</button>
 </div>
 
 <div>
 	<div class="container">
 	  <form class="demo-form">
-	    <timepicker color="primary" [(userTime)]="time"></timepicker>
+	    <timepicker color="primary" [(userTime)]="time" (change)="onChangeTime()"></timepicker>
 	  </form>
 	</div>
 </div>
+
+<h3>{{finalDate}}</h3>
