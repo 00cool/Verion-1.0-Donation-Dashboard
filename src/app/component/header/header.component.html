@@ -5,7 +5,7 @@
 <div style="text-align:center;margin-top: 80px;">
 <div class="row shadow-effect" style="width:100%;position: fixed;top:0; background-color:white" >
     <div style="float: left;width:8%;margin-right:0px;">
-        <img src="./src/../../../../assets/img/Iskcon_logo.jpg" style="width: 90%;" />
+        <img src="./src/../../../../assets/img/Iskcon_logo.jpg" style="width: 90%;padding: 15px;" />
     </div>
     <div style="float: left;width:20%;margin-top:15px;text-align: center;margin-left: -20px;">
         <span style="font:bold; color:#868686; font-size:25px;border-bottom: 1px solid blue;"> ASK KRISHANA?</span>
@@ -14,9 +14,9 @@
     </div>
     <div style="float: right;width:10%;margin-top:15px;text-align: center;margin-left: 20px;">
           
-        <div id="profile" *ngIf="isLoggedIn$" class="dropdown">
+        <div id="profile" *ngIf="isLoggedIn$" class="dropdown" style="position: relative;">
             <button class="dropbtn" style ="width: 50%"><img src="./src/../../../../assets/img/prof.png" style="width: 100%;" /></button>
-            <div class="dropdown-content">
+            <div class="dropdown-content" style="position: absolute;right: 0;">
                 <button class="button" style="font:bold; color:#868686; font-size:15px;" (click)="logout()"> Logout</button>
                <br>
                 <button  routerLink="/home" class="button" style="font:bold; color:#868686; font-size:15px;"> Home </button>
