@@ -1,27 +1,6 @@
 # DonationAdmin
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.1.
+The portal will provide a real-time dashboard on the insight we will drive in the background based on how a number of features and capabilities are being leveraged on the Ask Krishna Application. The diagram below is an illustration on how the analytics will be presented.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Revenue by quarter will be split into two parts. At a summary level by Campaign type such as Aartai, Flowers & Garlands, Feast & Prasadam, Other Offerings. The second part of the graphic will illustrate the Campaign at a detail level by quarter.
