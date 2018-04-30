@@ -60,7 +60,7 @@
     z-index: 1; /* Sit on top */
     padding-top: 100px;/* Location of the box */
     left: 500px;
-    top: 100px;
+    top: 13%;
     width: 40%; /* Full width */
     height: 80%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
@@ -71,8 +71,9 @@
 /* Modal Content */
 .modal-content {
     background-color: #fefefe;
-    margin: auto;
-    padding: 0px;
+    margin: 5% auto;
+    padding: 10px;
+    padding-bottom: 0;
     border: 0px solid #888;
     width: 80%;
 }

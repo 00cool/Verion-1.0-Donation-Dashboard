@@ -16,17 +16,18 @@
                <option *ngFor='let item of subspons ' id={{item}}>{{item}}</option>
             </select>
             <div id="tabledata" style="display:none" *ngIf="!hideTable">
-               <div style="width:70%;">
-                  <button class="button" style="float:right; margin-right:-60px" (click)="openModule()">Add New</button>
-                  <br>
-                  <!-- <img src="./src/../../../../assets/img/Radhakrishna.jpg" width="20%" style="text-align:center;" /> -->
+                  <div style="width:90%; position: relative;">
+                     <button class="button" style="position: absolute; right: 0;" (click)="openModule()">Add New</button>
+                     <br>
+                  </div>
+                                    <!-- <img src="./src/../../../../assets/img/Radhakrishna.jpg" width="20%" style="text-align:center;" /> -->
                   <br>
                   <br>
                   <table class="shadow-effect table-css">
                      <tr class="shadow-effect"  style="border-bottom: 0.3px solid #cccccc; text-align:center">
                         <th align="center" class="td-css width-20"  > Name of the Sponsorship </th>
                         <th align="center" class="td-css width-20"  > Is there any Sub Sponsorship to this Sponsorship </th>
-                        <th align="center" class="width-20" colspan="2"> Manage </th>
+                        <th align="center" class="td-css width-20" colspan="2"> Manage </th>
                      </tr>
                      <tr *ngFor='let item of Displaydata'>
                         <td align="center"  class="td-css width-25" >{{item.name}} </td>
@@ -43,7 +44,6 @@
                         </td>
                      </tr>
                   </table>
-               </div>
             </div>
             <br>
             <br>
