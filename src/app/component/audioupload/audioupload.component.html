@@ -1,0 +1,50 @@
+<div id="myModal" class="modal">
+<div class="model-content">
+    <h5  id="h5" class="popup-heading"> Add New Song</h5><br>
+      <label class="float-center">Name Of the Songs</label>
+      <br>
+      <input class="input width-60" type="text" id="event_name" name="event_name" placeholder="Add New Event" required>
+      <button type="submit" id="add" class="button1" (click)="checkButton()" disabled style="background-color: white" ></button>
+      <br>
+  
+      <label class="float-center">Meaning</label>
+      <br>
+      <textarea class="input width-60" type="text" id="mean" name="time" placeholder="Add Songs Meaning" (click)="showMeaning()" required></textarea> 
+      <button type="submit" id="add" class="button1"  (click)="addMean()">ADD</button>
+   
+      <br>
+      <label class="float-center">Prayer</label>
+      <br>
+      <textarea class="input width-60" type="text" id="prayer" name="time" placeholder="Add Prayers" (click)="showPrayer()"  required></textarea>  
+      <button type="submit" id="add" class="button1" (click)="addPrayer()">ADD</button>
+     
+      <br>
+      <br>
+      <div>
+    </div>
+  
+     <label>&nbsp;&nbsp;&nbsp;&nbsp;File Upload  &nbsp;&nbsp;</label><input type="file" name="file" id="file" (change)="filesupload()" required>
+     &nbsp;&nbsp; <input type="text" id="img_god" name="img_god" value="" style="display:none" /> 
+   <br>
+   <button type="submit" id="add" class="width-50 button" (click)="checkButton()">ADD</button>
+   
+</div>
+</div>
+
+
+
+<div id="prayerlist" class="list" style="display: none">
+
+    <ul>
+      <li *ngFor='let item of Prayer'>{{item}}</li>
+      </ul>
+
+</div>
+
+<div id="meanlist" class="list" style="display: none">
+
+    <ul>
+      <li *ngFor='let item of Meaning'>{{item}}</li>
+      </ul>
+
+</div>

@@ -60,6 +60,7 @@ import {Ng5TimePickerModule} from 'ng5-time-picker';
 import { CoursesComponent } from './component/courses/courses.component';
 import { WeeklyCourseComponent } from './component/weekly-course/weekly-course.component';
 import { AudioManageComponent } from './component/audio-manage/audio-manage.component';
+import { AudiouploadComponent } from './component/audioupload/audioupload.component';
 
 declare var require: any;
 
@@ -96,7 +97,9 @@ const appRoutes: Routes =  [
     {path : 'beacon' , component : BeaconComponent,canActivate:[AuthGuard] , outlet: 'sidebar'},
     {path: 'event' , component : EventComponent,canActivate : [AuthGuard] , outlet: 'sidebar'},
     {path : 'course' , component : CoursesComponent,canActivate : [AuthGuard], outlet : 'sidebar'},
-    {path : 'weeklycourse',component:WeeklyCourseComponent,canActivate : [AuthGuard], outlet : 'sidebar'}
+    {path : 'weeklycourse',component:WeeklyCourseComponent,canActivate : [AuthGuard], outlet : 'sidebar'},
+    {path : 'audio',component:AudioManageComponent,canActivate : [AuthGuard], outlet : 'sidebar'},
+    {path : 'audioupload',component:AudiouploadComponent,canActivate : [AuthGuard], outlet : 'sidebar'}
 
    ]
 
@@ -148,6 +151,8 @@ const appRoutes: Routes =  [
     WeeklyCourseComponent,
 
     AudioManageComponent,
+
+    AudiouploadComponent,
   
 
 

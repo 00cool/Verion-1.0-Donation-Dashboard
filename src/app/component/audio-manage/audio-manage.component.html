@@ -1,0 +1,79 @@
+<div class="row" style="text-align:center;margin-top: 100px;">
+    <div class="col s12">
+       <div style="width:90%; position: relative;">
+          <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['audioupload'] } }]" class="button" style="position: absolute; right: 0;" (click)="openModule()">Add New</button>
+          <br>
+       </div>
+        <!-- <img src="./src/../../../../assets/img/Radhakrishna.jpg" width="20%" style="text-align:center;" /> -->
+       <br>
+       <br>
+       <table class="shadow-effect table-css">
+          <tr class="shadow-effect"  style="border-bottom: 0.3px solid #cccccc; text-align:center">
+             <th align="center" class="td-css width-60"  > Name of Song </th>
+          
+             <th align="center" class="td-css width-40" colspan="2"> Manage </th>
+          </tr>
+          <tr *ngFor='let item of SongBook | async'>
+             <td align="center"  class="td-css width-60" >{{item.name}} </td>
+             <td align="center"  class="td-css width-10" >
+               <audio controls>
+                <!-- <source src="horse.ogg" type="audio/ogg"> -->
+                <source src="{{item.songUrl}}" type="audio/mpeg">
+                Your browser does not support the audio tag.
+              </audio></td>
+             <td align="center" class="width-40">
+                <div class="float-left width-50">
+                   <img src="./src/../../../../assets/img/edit.jpg" class="center width-10" />
+                   <button class="button-text" value={{item.name}} id={{item.name}} (click)="show(this.id)">Edit</button>
+                </div>
+                <div class="float-left width-50">
+                   <img src="./src/../../../../assets/img/delete.jpg" class="center width-10" />
+                   <button class="button-text" value={{item.name}} id={{item.name}} (click)="delete(this.id)">Delete</button>
+                </div>
+             </td>
+          </tr>
+       </table>
+       <br>
+       <br>
+       <div id="myModal" class="modal shadow-effect">
+          <span class="close" (click)="spanClick()">&times;</span>
+          <div *ngIf="!eventAdded">
+             <div class="popup-inner-style width-100">
+                 <h5  id="h5" class="popup-heading"> Add New Event</h5><br>
+                   <label class="float-center">Name Of the Event</label>
+                   <br>
+                   <input class="input width-60" type="text" id="event_name" name="event_name" placeholder="Add New Event" required>
+                   <br>
+                   <br>
+                   <label class="float-center">Time</label>
+                   <br>
+                   <input class="input width-60" type="text" id="time" name="time" placeholder="Add Time For the Event" required>
+                   <br>
+                   <br>
+                   <div>
+                       <label class="float-center">Date</label><br>
+                  
+                     <mat-form-field>
+                       <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="date" id="date">
+                       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                       <mat-datepicker #picker></mat-datepicker>
+                     </mat-form-field>
+                     <!-- <button (click)="onButton()">Print date</button> -->
+                
+                 </div>
+               
+                <br>
+                <button type="submit" id="add" class="width-50 button" (click)="checkButton()">ADD</button>
+                
+             </div>
+          </div>
+          <div *ngIf="eventAdded" style="text-align: center; margin-top: 50px;">
+            <span style="border: 2px solid #008cba; padding: 5px;  border-radius: 50%; font-size: 20px;">&#10004;</span>
+            <br><br>
+            <h3 *ngIf="!eventUpdated">Campaign added successfully!</h3>
+            <h3 *ngIf="eventUpdated">Campaign Updated successfully!</h3>
+            <button class="button" (click)="onContinue()">Continue</button>
+          </div>
+       </div>
+    </div>
+ </div>
