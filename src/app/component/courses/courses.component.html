@@ -6,34 +6,34 @@
                <button class="button" style="position: absolute; right: 0;" (click)="openModule()">Add New</button>
                <br>
             </div>
-             <img src="./src/../../../../assets/img/Radhakrishna.jpg" width="20%" style="text-align:center;" />
+             <!-- <img src="./src/../../../../assets/img/Radhakrishna.jpg" width="20%" style="text-align:center;" /> -->
             <br>
             <br>
             <table class="shadow-effect table-css">
                <tr class="shadow-effect"  style="border-bottom: 0.3px solid #cccccc; text-align:center">
                   <th align="center" class="td-css width-20"  > Course Name </th>
-                  <th align="center" class="td-css width-20"  > Course Desc </th>
-                  <th align="center" class="td-css width-20"  > Fee </th>
-                  <th align="center" class="td-css width-20"  > Location </th>
-                  <th align="center" class="td-css width-20"  > Start Date </th>
-                  <th align="center" class="td-css width-20"  > End Date </th>
-                  <th align="center" class="td-css width-20" colspan="2"> Manage </th>
+                  <th align="center" class="td-css width-18"  > Course Desc </th>
+                  <th align="center" class="td-css width-8"  > Fee </th>
+                  <th align="center" class="td-css width-12"  > Location </th>
+                  <th align="center" class="td-css width-15"  > Start Date </th>
+                  <th align="center" class="td-css width-15"  > End Date </th>
+                  <th align="center" class="td-css width-25" colspan="2"> Manage </th>
                </tr>
                <tr *ngFor='let item of Course | async'>
-                  <td align="center"  class="td-css width-25" >{{item.course_name}} </td>
+                  <td align="center"  class="td-css width-22" >{{item.course_name}} </td>
                   <td align="center"  class="td-css width-25">{{item.course_desc}} </td>
-                  <td align="center"  class="td-css width-25">{{item.fee}} </td>
-                  <td align="center"  class="td-css width-25">{{item.location}} </td>
-                  <td align="center"  class="td-css width-25">{{item.start_date}} </td>
-                  <td align="center"  class="td-css width-25">{{item.end_date}} </td>
+                  <td align="center"  class="td-css width-8">{{item.fee}} </td>
+                  <td align="center"  class="td-css width-12">{{item.location}} </td>
+                  <td align="center"  class="td-css width-15">{{item.start_date.toString().slice(0,21)  }} </td>
+                  <td align="center"  class="td-css width-15">{{item.end_date.toString().slice(0,21)}} </td>
                   <td align="center" class="width-20">
                      <div class="float-left width-50">
-                        <img src="./src/../../../../assets/img/edit.jpg" class="center width-20" />
-                        <button class="button-text" value={{item.course_name}} id={{item.course_name}} (click)="show(this.id)">Edit</button>
+                       
+                        <button class="button-text" value={{item.course_name}} id={{item.course_name}} (click)="show(this.id)"> <img src="./src/../../../../assets/img/edit.jpg" class="center width-30" /> &nbsp; Edit</button>
                      </div>
                      <div class="float-left width-50">
-                        <img src="./src/../../../../assets/img/delete.jpg" class="center width-20" />
-                        <button class="button-text" value={{item.course_name}} id={{item.course_name}} (click)="delete(this.id)">Delete</button>
+                       
+                        <button class="button-text" value={{item.course_name}} id={{item.course_name}} (click)="delete(this.id)">  <img src="./src/../../../../assets/img/delete.jpg" class="center width-15" />  &nbsp; Delete</button>
                      </div>
                   </td>
                </tr>
@@ -60,21 +60,27 @@
                       <br>
                       <input class="input width-60" type="text" id="location" name="location" placeholder="Location" required>
                       <br>
-                      
+                      <br>
                       <div>
-                          <label class="float-center">Choose Start Date </label>
+                          <label class="float-center ; ">Choose Start Date </label>
+                          <br>
                           <mat-form-field>
+                           
                             <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="StartDate" id="StartDate">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker > </mat-datepicker>
                           </mat-form-field><br>
                          
                           <div class="container">
-                              <label class="float-center">Choose Start Time </label>
                               <form class="demo-form">
-                                <timepicker id="time_start"  color="primary" [(userTime)]="StartTime" (changed)="onChangeTime()"></timepicker>
+                              
+                                  <label class="float-center">Choose Start Time </label>
+                                <div style="margin-left: 47%">
+                                   
+                                <timepicker id="time_start" format="12"  color="primary" [(userTime)]="StartTime" (changed)="onChangeTime()"></timepicker>
+                              </div>
                                 <label > {{StartTime.hour}} : {{StartTime.minute}} </label>
-                                <label> </label>
+                           
                               </form>
                             
                             </div>
@@ -83,7 +89,9 @@
                       
                       <div>
                           <label class="float-center">Choose End Date </label>
+                          <br>
                           <mat-form-field>
+                   
                             <input matInput [matDatepicker]="picker1" placeholder="Choose a date" [(ngModel)]="EndDate" id="EndDate">
                             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                             <mat-datepicker #picker1></mat-datepicker>
@@ -92,14 +100,17 @@
                           <div class="container">
                               <label class="float-center">Choose End Time </label>
                               <form class="demo-form">
-                                <timepicker color="primary" [(userTime)]="EndTime" (change)="onChangeTime()"></timepicker>
-                                <label > {{EndTime.hour}} : {{EndTime.minute}} </label>
+                                  <div style="margin-left: 47%">
+                                <timepicker format="12" color="primary" [(userTime)]="EndTime" (change)="onChangeTime()"></timepicker>
+                               
+                                  </div>
+                                  <label > {{EndTime.hour}} : {{EndTime.minute}} </label>
                               </form>
                             </div>
                         
                       </div>
                     
-                     <br>
+               
                      <button type="submit" id="add" class="width-50 button" (click)="checkButton()">ADD</button>
                      
                   </div>

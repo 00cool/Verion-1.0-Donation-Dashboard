@@ -12,8 +12,8 @@ export interface course {course_name:string; course_desc : string; fee : number;
 export class CoursesComponent implements OnInit {
 StartDate : any;
 EndDate : any;
-StartTime : any = {hour: '', minute: '', meriden: "PM", format: 24};
-EndTime : any = {hour: '', minute: '', meriden: "PM", format: 24};
+StartTime : any = {hour: '', minute: '', meriden: "PM", format: 12};
+EndTime : any = {hour: '', minute: '', meriden: "PM", format: 12};
 hour : any;
 minute : any;
 

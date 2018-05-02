@@ -59,6 +59,7 @@ import {MatCardModule} from '@angular/material/card';
 import {Ng5TimePickerModule} from 'ng5-time-picker';
 import { CoursesComponent } from './component/courses/courses.component';
 import { WeeklyCourseComponent } from './component/weekly-course/weekly-course.component';
+import { AudioManageComponent } from './component/audio-manage/audio-manage.component';
 
 declare var require: any;
 
@@ -145,6 +146,8 @@ const appRoutes: Routes =  [
     CoursesComponent,
 
     WeeklyCourseComponent,
+
+    AudioManageComponent,
   
 
 

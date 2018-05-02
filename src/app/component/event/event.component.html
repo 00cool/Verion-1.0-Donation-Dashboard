@@ -32,7 +32,7 @@
                <button class="button" style="position: absolute; right: 0;" (click)="openModule()">Add New</button>
                <br>
             </div>
-             <img src="./src/../../../../assets/img/Radhakrishna.jpg" width="20%" style="text-align:center;" />
+             <!-- <img src="./src/../../../../assets/img/Radhakrishna.jpg" width="20%" style="text-align:center;" /> -->
             <br>
             <br>
             <table class="shadow-effect table-css">
@@ -45,7 +45,7 @@
                <tr *ngFor='let item of Event | async'>
                   <td align="center"  class="td-css width-25" >{{item.name}} </td>
                   <td align="center"  class="td-css width-25">{{item.time}} </td>
-                  <td align="center"  class="td-css width-25">{{item.date}} </td>
+                  <td align="center"  class="td-css width-25">{{item.date.toString().slice(0,15)}} </td>
                   <td align="center" class="width-20">
                      <div class="float-left width-50">
                         <img src="./src/../../../../assets/img/edit.jpg" class="center width-10" />
@@ -74,7 +74,7 @@
                         <br>
                         <input class="input width-60" type="text" id="time" name="time" placeholder="Add Time For the Event" required>
                         <br>
-                        
+                        <br>
                         <div>
                             <label class="float-center">Date</label><br>
                        
