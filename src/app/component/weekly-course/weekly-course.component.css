@@ -1,0 +1,105 @@
+
+.select {
+    margin-bottom: 1em;
+    padding: .75em;
+    border: 2px thick;
+    width: 20%;
+    font-weight: bold;
+    letter-spacing: .15em;
+    border-radius: 50;
+  }
+  
+  .button{
+    background-color: #008CBA;
+    width: 25%;
+    font-size: 15px;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 0px;
+    border: 0ch;
+    
+  }
+  
+  .button1 {
+    background-color: #008CBA;
+    width: 40%;
+    font-size: 15px;
+    color: white;
+    padding: 12px 20px;
+    /* border-radius: 0px; */
+    border: 0ch;
+    
+  }
+  
+  .input{
+    width: 50%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+  }
+  
+  .table-css
+  {
+    margin-left:auto ;
+    margin-right: auto;
+     margin:center; 
+      width:80%;
+    /* border:1 px solid grey; */
+  }
+  .td-css
+  {
+    padding: 15px;
+    border-right:1px solid #cccccc;
+  }
+  
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px;/* Location of the box */
+    left: 350px;
+    top: 200px;
+    width: 60%; /* Full width */
+    height: 60%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: white; /* Fallback color */
+    background-color : white rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0px;
+    border: 0px solid #888;
+    width: 60%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 40px;
+    font-weight: lighter;
+    position: absolute;
+    top: 0;
+    right: inherit;
+    margin-right: 2%;
+  }
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .popup-heading
+    {
+        border-bottom: 2px solid #2bbbec;
+        padding-bottom: 10px;
+        width: 50%;
+        text-align: center;
+        margin: auto;
+    }
