@@ -1,0 +1,120 @@
+<html>
+   <body>
+      <div class="row" style="text-align:center;margin-top: 100px;">
+         <div class="col s12">
+            <div style="width:90%; position: relative;">
+               <button class="button" style="position: absolute; right: 0;" (click)="openModule()">Add New</button>
+               <br>
+            </div>
+             <img src="./src/../../../../assets/img/Radhakrishna.jpg" width="20%" style="text-align:center;" />
+            <br>
+            <br>
+            <table class="shadow-effect table-css">
+               <tr class="shadow-effect"  style="border-bottom: 0.3px solid #cccccc; text-align:center">
+                  <th align="center" class="td-css width-20"  > Course Name </th>
+                  <th align="center" class="td-css width-20"  > Course Desc </th>
+                  <th align="center" class="td-css width-20"  > Fee </th>
+                  <th align="center" class="td-css width-20"  > Location </th>
+                  <th align="center" class="td-css width-20"  > Start Date </th>
+                  <th align="center" class="td-css width-20"  > End Date </th>
+                  <th align="center" class="td-css width-20" colspan="2"> Manage </th>
+               </tr>
+               <tr *ngFor='let item of Course | async'>
+                  <td align="center"  class="td-css width-25" >{{item.course_name}} </td>
+                  <td align="center"  class="td-css width-25">{{item.course_desc}} </td>
+                  <td align="center"  class="td-css width-25">{{item.fee}} </td>
+                  <td align="center"  class="td-css width-25">{{item.location}} </td>
+                  <td align="center"  class="td-css width-25">{{item.start_date}} </td>
+                  <td align="center"  class="td-css width-25">{{item.end_date}} </td>
+                  <td align="center" class="width-20">
+                     <div class="float-left width-50">
+                        <img src="./src/../../../../assets/img/edit.jpg" class="center width-20" />
+                        <button class="button-text" value={{item.course_name}} id={{item.course_name}} (click)="show(this.id)">Edit</button>
+                     </div>
+                     <div class="float-left width-50">
+                        <img src="./src/../../../../assets/img/delete.jpg" class="center width-20" />
+                        <button class="button-text" value={{item.course_name}} id={{item.course_name}} (click)="delete(this.id)">Delete</button>
+                     </div>
+                  </td>
+               </tr>
+            </table>
+            <br>
+            <br>
+            <div id="myModal" class="modal shadow-effect">
+               <span class="close" (click)="spanClick()">&times;</span>
+               <div *ngIf="!eventAdded">
+                  <div class="popup-inner-style width-100">
+                      <h5  id="h5" class="popup-heading"> Add New Event</h5><br>
+                      <label class="float-center">Name Of the Course</label>
+                      <br>
+                      <input class="input width-60" type="text" id="course_name" name="course_name" placeholder="Add New Course" required>
+                      <br>
+                      <label class="float-center">Description</label>
+                      <br>
+                      <input class="input width-60" type="text" id="course_desc" name="course_desc" placeholder="Description" required><br>
+                      <label class="float-center">Fee</label>
+                      <br>
+                      <input class="input width-60" type="number" id="fee" name="fee" placeholder="Fee" required>
+                      <br>
+                      <label class="float-center">Location</label>
+                      <br>
+                      <input class="input width-60" type="text" id="location" name="location" placeholder="Location" required>
+                      <br>
+                      
+                      <div>
+                          <label class="float-center">Choose Start Date </label>
+                          <mat-form-field>
+                            <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="StartDate" id="StartDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker > </mat-datepicker>
+                          </mat-form-field><br>
+                         
+                          <div class="container">
+                              <label class="float-center">Choose Start Time </label>
+                              <form class="demo-form">
+                                <timepicker id="time_start"  color="primary" [(userTime)]="StartTime" (changed)="onChangeTime()"></timepicker>
+                                <label > {{StartTime.hour}} : {{StartTime.minute}} </label>
+                                <label> </label>
+                              </form>
+                            
+                            </div>
+                        
+                      </div>
+                      
+                      <div>
+                          <label class="float-center">Choose End Date </label>
+                          <mat-form-field>
+                            <input matInput [matDatepicker]="picker1" placeholder="Choose a date" [(ngModel)]="EndDate" id="EndDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1></mat-datepicker>
+                          </mat-form-field><br>
+                         
+                          <div class="container">
+                              <label class="float-center">Choose End Time </label>
+                              <form class="demo-form">
+                                <timepicker color="primary" [(userTime)]="EndTime" (change)="onChangeTime()"></timepicker>
+                                <label > {{EndTime.hour}} : {{EndTime.minute}} </label>
+                              </form>
+                            </div>
+                        
+                      </div>
+                    
+                     <br>
+                     <button type="submit" id="add" class="width-50 button" (click)="checkButton()">ADD</button>
+                     
+                  </div>
+               </div>
+               <div *ngIf="eventAdded" style="text-align: center; margin-top: 50px;">
+                 <span style="border: 2px solid #008cba; padding: 5px;  border-radius: 50%; font-size: 20px;">&#10004;</span>
+                 <br><br>
+                 <h3 *ngIf="!eventUpdated">Campaign added successfully!</h3>
+                 <h3 *ngIf="eventUpdated">Campaign Updated successfully!</h3>
+                 <button class="button" (click)="onContinue()">Continue</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html> 
+
+

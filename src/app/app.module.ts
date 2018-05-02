@@ -57,6 +57,8 @@ import { MatIconModule } from "@angular/material/icon";
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCardModule} from '@angular/material/card';
 import {Ng5TimePickerModule} from 'ng5-time-picker';
+import { CoursesComponent } from './component/courses/courses.component';
+import { WeeklyCourseComponent } from './component/weekly-course/weekly-course.component';
 
 declare var require: any;
 
@@ -91,7 +93,9 @@ const appRoutes: Routes =  [
     {path:'sponsorship',component : SponsorshipComponent,canActivate:[AuthGuard],outlet: 'sidebar'},
     {path : 'subsponsorship' , component : SubsponsorshipComponent,canActivate:[AuthGuard] , outlet: 'sidebar'},
     {path : 'beacon' , component : BeaconComponent,canActivate:[AuthGuard] , outlet: 'sidebar'},
-    {path: 'event' , component : EventComponent,canActivate : [AuthGuard] , outlet: 'sidebar'}
+    {path: 'event' , component : EventComponent,canActivate : [AuthGuard] , outlet: 'sidebar'},
+    {path : 'course' , component : CoursesComponent,canActivate : [AuthGuard], outlet : 'sidebar'},
+    {path : 'weeklycourse',component:WeeklyCourseComponent,canActivate : [AuthGuard], outlet : 'sidebar'}
 
    ]
 
@@ -137,6 +141,10 @@ const appRoutes: Routes =  [
     BeaconComponent,
 
     EventComponent,
+
+    CoursesComponent,
+
+    WeeklyCourseComponent,
   
 
 
