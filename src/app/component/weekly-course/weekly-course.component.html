@@ -32,7 +32,7 @@
                <button class="button" style="position: absolute; right: 0;" (click)="openModule()">Add New</button>
                <br>
             </div>
-             <img src="./src/../../../../assets/img/Radhakrishna.jpg" width="20%" style="text-align:center;" />
+             <!-- <img src="./src/../../../../assets/img/Radhakrishna.jpg" width="20%" style="text-align:center;" /> -->
             <br>
             <br>
             <table class="shadow-effect table-css">
@@ -70,6 +70,7 @@
                         <br>
                         <div>
                           <label class="float-center">Choose Date </label>
+                          <br>
                           <mat-form-field>
                             <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="StartDate" id="StartDate">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -79,7 +80,9 @@
                           <div class="container">
                               <label class="float-center">Choose Time </label>
                               <form class="demo-form">
+                                  <div style="margin-left: 47%">
                                 <timepicker id="time_start"  color="primary" [(userTime)]="StartTime" (changed)="onChangeTime()"></timepicker>
+                              </div>
                                 <label > {{StartTime.hour}} : {{StartTime.minute}} </label>
                                 <label> </label>
                               </form>
