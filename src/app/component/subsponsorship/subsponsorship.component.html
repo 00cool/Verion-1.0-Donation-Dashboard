@@ -42,11 +42,11 @@
                      <td align="center" class="width-20">
                         <div class="float-left width-50">
                            <img src="./src/../../../../assets/img/edit.jpg" class="center width-10" />
-                           <button class="button-text" value={{item.name}} id={{item.name}} (click)="show(this.id)">Edit</button>
+                           <button class="button-text" value={{item.id}} id={{item.id}} (click)="show(this.id)">Edit</button>
                         </div>
                         <div class="float-left width-50">
                            <img src="./src/../../../../assets/img/delete.jpg" class="center width-10" />
-                           <button class="button-text" value={{item.name}} id={{item.name}} (click)="delete(this.id)">Delete</button>
+                           <button class="button-text" value={{item.id}} id={{item.id}} (click)="delete(this.id)">Delete</button>
                         </div>
                      </td>
                   </tr>
@@ -99,8 +99,8 @@
                   <div *ngIf="eventAdded" style="text-align: center; margin-top: 50px;">
                      <span style="border: 2px solid #008cba; padding: 5px;  border-radius: 50%; font-size: 20px;">&#10004;</span>
                      <br><br>
-                     <h3 *ngIf="eventUpdated">Sub Sponsorship added successfully!</h3>
-                     <h3 *ngIf="!eventUpdated">Sub Sponsorship updated successfully!</h3>
+                     <h3 *ngIf="!eventUpdated">Sub Sponsorship added successfully!</h3>
+                     <h3 *ngIf="eventUpdated">Sub Sponsorship updated successfully!</h3>
                      <button class="button" (click)="onContinue()">Continue</button>
                    </div>
                </div>

@@ -156,7 +156,9 @@ console.log(subcampids);
         id = doc.id;
         console.log(doc.data().name);
           console.log(id);
-          this.Displaydata.push(doc.data());
+         const items : any = {id : doc.id,name: doc.data().name,parent_id : doc.data().parent_id,amount : doc.data().amount}
+
+          this.Displaydata.push(items);
       });
     }
   ).then(() => 
@@ -413,6 +415,7 @@ show_spons()
         var spon_name =(document.getElementById('spon_select') as HTMLInputElement).value
         var name =(document.getElementById('sub_sponsorship') as HTMLInputElement).value;
         var amount =(document.getElementById('amount') as HTMLInputElement).value;
+        amount.replace(/,\s?/g, "");
         console.log(name + ' name')
         const query = this.sponsCollection.ref.where('name', '==',spon_name);
 
@@ -451,25 +454,29 @@ show_spons()
 
    update()
    {
-    console.log('call....  update');
- 
+    console.log('call....  update' + this.subsponsid);
+    console.log(subsponsid);
+    
     let sponsorshipid;
     let id;
     const name = (document.getElementById('sub_sponsorship') as HTMLInputElement).value;
-    const amount = (document.getElementById('amount') as HTMLInputElement).value;
+    var amount = (document.getElementById('amount') as HTMLInputElement).value;
     const sub_name = (document.getElementById('sub_camp') as HTMLInputElement).value;
     const subspons_name = (document.getElementById('spon_select') as HTMLInputElement).value;
-    name.trim();
-    amount.trim();
-    sub_name.trim();
-    subspons_name.trim();
+   console.log(name.trim());
+    console.log(amount.trim());
+    console.log(sub_name.trim());
+    console.log(subspons_name.trim());
+    amount.replace(/,\s?/g, "");
 
 
     const res = (this.sponsCollection.ref.where('name', '==', subspons_name).where('parent_id','==',this.subsponsid).get().then(
-      function a(querySnapshot) {
-        querySnapshot.forEach(function (doc) {
-          console.log('id ' + doc.id);
-          sponsorshipid = doc.id;
+      (querySnapshot) => {
+        console.log("in querysnapshot");
+        querySnapshot.forEach((doc1) => {
+
+          console.log('id ' + doc1.id);
+          sponsorshipid = doc1.id;
         });
       }
     )).then(() => 
@@ -489,7 +496,7 @@ show_spons()
   this.subsponsCollection.doc(subsponsid).update(item).then(() => {
 // location.reload(true);
   this.eventUpdated = true;
-  this.eventAdded = true;
+ this.eventAdded = true;
   });
 });
 
@@ -503,26 +510,29 @@ show_spons()
     // const item: Taplearn = { desc: val };
     let id;
     var data;
-    const res = (this.subsponsCollection.ref.where('name', '==', val).get().then(
-      function a(querySnapshot) {
-        querySnapshot.forEach(function (doc) {
-          console.log(doc.id);
-          id = doc.id;
+console.log(val);
+    this.subsponsCollection.doc(val).delete().then((res) => {
+    this.showdata();
+    })
+    // const res = (this.subsponsCollection.ref.where('name', '==', val).get().then(
+    //   function a(querySnapshot) {
+    //     querySnapshot.forEach(function (doc) {
+    //       console.log(doc.id);
+    //       id = doc.id;
 
-          data = doc.data();
+    //       data = doc.data();
 
-        });
-      }
-    )).then(()=> {
-      this.subsponsCollection.doc(id).delete().then((res) => {
-        this.showdata();
-       // location.reload(true);
-      });
+    //     });
+    //   }
+    // )).then(()=> {
+    //   this.subsponsCollection.doc(id).delete().then((res) => {
+    //    // location.reload(true);
+    //   });
 
       
       
-    //  console.log(del);
-    });
+    // //  console.log(del);
+    // });
 
    
       
@@ -531,19 +541,29 @@ show_spons()
    show()
    {
       (document.getElementById('select_sub') as HTMLInputElement).style.display = 'block';
-      
+      var update_sponsorship = (document.getElementById('sponsorshipid') as HTMLInputElement).value;
      console.log('call....show  ===>' + event.srcElement.id);
      let data;
      let val;
      let id; 
      let spons_id;
      let subsponsname, amount,campname , subcampname , sponsname ,subcampid;
-
      val = event.srcElement.id;
-     const res = (this.subsponsCollection.ref.where('name', '==', val).get().then(
-      (querySnapshot) => {
-        querySnapshot.forEach(function (doc) {
-          console.log('this' + doc.id);
+     console.log("update spions id "+ val);
+
+
+     const res = (this.subsponsCollection.ref.doc(val).get().then(
+      (doc) => {
+      
+          console.log('this' + doc);
+          if(doc.exists)
+          {
+            console.log(doc.data()+"=========="+doc.id);
+           
+          }
+        
+          else
+          console.log("documnet not dounf")
           data = doc.data();
           id = doc.id;
           subsponsid =doc.id;
@@ -552,11 +572,9 @@ show_spons()
          // console.log('aa' + doc.data());
          subsponsname = doc.data().name;
          amount = doc.data().amount;
-         console.log("subsponship" +subcampname +"amount===" + amount);
-  
-  
-        });
+         console.log("subsponship" +subsponsname +"    " +amount + "===+++amount");
       }
+  
     )).then(() =>
   {
      const res = (this.sponsCollection.ref.doc(spons_id).get().then(
@@ -583,7 +601,7 @@ show_spons()
       var camp_id;
       var camp_name;
    
-       const res = (this.sub_campaignCollection.ref.doc(subcampid ).get().then(
+       const res = (this.sub_campaignCollection.ref.doc(subcampid).get().then(
         (querySnapshot) =>  {
          
            this.parentid = querySnapshot.id;
@@ -662,16 +680,17 @@ show_spons()
     
    
       
-   
+      });
    
        
-       // var radio = (document.getElementById('ischild')as HTMLInputElement).checked = data.isChild;
+    //   var radio = (document.getElementById('ischild')as HTMLInputElement).checked = data.isChild;
       
        this.openModule();
      
    
        
-     })
+    
+    
    }
    checkButton() {
     console.log('call button');
