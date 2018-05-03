@@ -84,7 +84,7 @@ export class WeeklyCourseComponent implements OnInit {
       var date_func1 = moment(data.end_date).format('MM/DD/YYYY');
       console.log(date_func1);
       (document.getElementById('add') as HTMLInputElement).innerHTML = 'update';
-      (document.getElementById('h5') as HTMLInputElement).innerHTML = 'Update Event';
+      (document.getElementById('h5') as HTMLInputElement).innerHTML = 'Update Weekly Course';
       this.update_id = id;
       console.log(this.update_id);
       

@@ -119,7 +119,7 @@ public courseCollection : AngularFirestoreCollection<course>;
       console.log(date_func1);
       (document.getElementById('EndDate') as HTMLInputElement).value = date_func1;
       (document.getElementById('add') as HTMLInputElement).innerHTML = 'update';
-      (document.getElementById('h5') as HTMLInputElement).innerHTML = 'Update Event';
+      (document.getElementById('h5') as HTMLInputElement).innerHTML = 'Update Course';
       this.update_id = id;
       console.log(this.update_id);
       
