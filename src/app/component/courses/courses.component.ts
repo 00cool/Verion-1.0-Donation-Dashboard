@@ -81,6 +81,11 @@ public courseCollection : AngularFirestoreCollection<course>;
 
     outline.pop();
     console.log(outline);
+    for(var i=0;i<outline.length;i++)
+    {
+      outline[i]=outline[i]+".";
+      console.log(outline[i]);
+    }
     this.finalstartdate = moment(this.StartDate).hours(this.StartTime.hour).minutes(this.StartTime.minute).toString();
     this.finalenddate = moment(this.EndDate).hours(this.EndTime.hour).minutes(this.EndTime.minute).toString();
 
@@ -186,7 +191,15 @@ public courseCollection : AngularFirestoreCollection<course>;
       var val5 = (document.getElementById('desc') as HTMLInputElement).value;
       val5.trim();
       var string1 = val5.split('.');
+     
       string1.pop();
+      for(var i=0;i<string1.length;i++)
+    {
+      string1[i]=string1[i].replace(",","");
+      string1[i] =string1[i]+".";
+
+      console.log(string1[i]);
+    }
       var val6 = (document.getElementById('about') as HTMLInputElement).value;
       val6.trim();
 
