@@ -43,6 +43,7 @@ export class WeeklyCourseComponent implements OnInit {
       const items : weekly = {name:weeklycourse,time:dbdate};
       console.log(items);
       this.weeklyCollection.add(items).then((res) => {
+        location.reload(true);
         console.log(res);
       })
 
