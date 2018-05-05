@@ -202,6 +202,7 @@ console.log(subcampids);
 
 show_spons()
 {
+  this.hideTable =true;
   let id
   var subcampids = (document.getElementById('sub_camp_id') as HTMLInputElement).value;
   console.log("data" + subcampids);

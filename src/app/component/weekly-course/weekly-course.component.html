@@ -43,7 +43,7 @@
                </tr>
                <tr *ngFor='let item of Weekly | async'>
                   <td align="center"  class="td-css width-25" >{{item.name}} </td>
-                  <td align="center"  class="td-css width-25">{{item.date}} </td>
+                  <td align="center"  class="td-css width-25">{{item.time.toString().slice(0,21)}} </td>
                   <td align="center" class="width-20">
                      <div class="float-left width-50">
                         <img src="./src/../../../../assets/img/edit.jpg" class="center width-10" />

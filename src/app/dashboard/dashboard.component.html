@@ -1,73 +1,57 @@
-
 <ng-container>
-
   <mat-sidenav-container class="example-container">
-    <mat-sidenav mode="side" class="example-sidenav shadow-effect" style="border:1px grey" opened>
-      <div style="float: right;width:8%;margin-top:12px;text-align: center;margin-left: 5px;">
-       
-          <button (click)="myFunction()" class="side_button shadow-effect">Analytics</button>
-          <button class="side_button shadow-effect" [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['donationpercamp'] } }]" style="font:bold; color:#868686; font-size:15px;">Per Campaign</button>
-          <br>
-          <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['timeseries'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px;">  Time Series </button>
-          <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['heatmap'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px;">UK Donation Map </button>
-         
-          <button (click)="myFunction()" class="side_button shadow-effect">Manage Application</button>
-          <br>
-          <!-- <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['camp'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
-            Campaign </button>
-          <br>
-          <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['campaign'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
-            Sub-Campaign</button>
-          <br> -->
-          <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['tapandlearn'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
-            Tap & Learn </button>
-          <br>
-          <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['newcamp'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
-            Campaign </button>
-          <br>
-          <br>
-          <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['newsubcamp'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
-            SubCampaign </button>
-          <!-- <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['home'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
-            Event </button> -->
-          <br>
-          <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['sponsorship'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
-            Sponsorship</button>
-            <br>
-            <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['subsponsorship'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
-              SubSponsorship</button>
-         <br>
-         <!-- <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['beacon'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
-          Beacon Message</button>
-          <br> -->
-          <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['event'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
+     <mat-sidenav mode="side" class="example-sidenav shadow-effect" style="border:1px grey" opened>
+        <div style="float: right;width:8%;margin-top:12px;text-align: center;margin-left: 5px;">
+           <button (click)="myFunction()" class="side_button shadow-effect">Analytics</button>
+           <button class="side_button shadow-effect" [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['donationpercamp'] } }]" style="font:bold; color:#868686; font-size:15px;">Per Campaign</button>
+           <br>
+           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['timeseries'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px;">  Time Series </button>
+           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['heatmap'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px;">UK Donation Map </button>
+           <button (click)="myFunction()" class="side_button shadow-effect">Manage Application</button>
+           <br>
+           <!-- <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['camp'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
+              Campaign </button>
+              <br>
+              <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['campaign'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
+              Sub-Campaign</button>
+              <br> -->
+           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['tapandlearn'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px;">
+           Tap & Learn </button>
+           <br>
+           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['newcamp'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px;">
+           Campaign </button>
+           <br>
+           <br>
+           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['newsubcamp'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px; padding-left: 30px;">
+           SubCampaign </button>
+           <!-- <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['home'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px;">
+              Event </button> -->
+           <br>
+           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['sponsorship'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px; padding-left: 50px;">
+           Sponsorship</button>
+           <br>
+           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['subsponsorship'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px; padding-left: 70px;">
+           SubSponsorship</button>
+           <br>
+           <!-- <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['beacon'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px;">
+              Beacon Message</button>
+              <br> -->
+           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['event'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px;">
            Event</button>
            <br>
-           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['course'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
-            Course</button>
-            <br>
-            <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['weeklycourse'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
-              Weekly-Course</button>
-            <!-- <br>
-            <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['audio'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
-              Audio</button> -->
-     
-     
-       
-      </div>
-      <br>
-    
-
-    </mat-sidenav>
-
-
-
-    <mat-sidenav-content class="example-content  shadow-effect">
-
-      <router-outlet name="sidebar"></router-outlet>
-    </mat-sidenav-content>
+           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['course'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px;">
+           Course</button>
+           <br>
+           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['weeklycourse'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px; padding-left: 30px;">
+           Weekly-Course</button>
+           <!-- <br>
+              <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['audio'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
+                Audio</button> -->
+        </div>
+        <br>
+     </mat-sidenav>
+     <mat-sidenav-content class="example-content  shadow-effect">
+        <router-outlet name="sidebar"></router-outlet>
+     </mat-sidenav-content>
   </mat-sidenav-container>
-
-
 </ng-container>
-

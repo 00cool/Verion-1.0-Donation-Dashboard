@@ -25,8 +25,8 @@ export class EventComponent implements OnInit {
 
   constructor(db: AngularFirestore)
    { 
-    this.eventCollection = db.collection<event>('event_temp');
-    this.Event = db.collection('event_temp').valueChanges(); 
+    this.eventCollection = db.collection<event>('events');
+    this.Event = db.collection('events').valueChanges(); 
    }
   events: string[] = [];
 
@@ -124,7 +124,7 @@ export class EventComponent implements OnInit {
       console.log(item);
       console.log(this.update_id);
       console.log(this.eventCollection.doc(this.update_id).update(item).then((res) => {
-        // location.reload(true);
+         location.reload(true);
         console.log(res);
       
       }));

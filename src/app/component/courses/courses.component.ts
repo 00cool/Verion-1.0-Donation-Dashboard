@@ -28,8 +28,8 @@ public courseCollection : AngularFirestoreCollection<course>;
 
   constructor(db: AngularFirestore)
    {
-        this.courseCollection = db.collection<course>('course_temp');
-        this.Course = db.collection('course_temp').valueChanges();
+        this.courseCollection = db.collection<course>('courses');
+        this.Course = db.collection('courses').valueChanges();
     }
 
   ngOnInit() {

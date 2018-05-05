@@ -3,7 +3,7 @@ import * as moment from 'moment';
 import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 
-export interface weekly {name : string; date : Date};
+export interface weekly {name : string; time : Date};
 @Component({
   selector: 'app-weekly-course',
   templateUrl: './weekly-course.component.html',
@@ -23,8 +23,8 @@ export class WeeklyCourseComponent implements OnInit {
 
   constructor(db: AngularFirestore)
    {
-      this.weeklyCollection = db.collection<weekly>('weekly_temp');
-      this.Weekly = db.collection('weekly_temp').valueChanges();
+      this.weeklyCollection = db.collection<weekly>('weekly_courses');
+      this.Weekly = db.collection('weekly_courses').valueChanges();
     }
 
   ngOnInit() {
@@ -40,7 +40,7 @@ export class WeeklyCourseComponent implements OnInit {
       
       var dbdate = new Date(this.finalstartdate);
       console.log(dbdate);
-      const items : weekly = {name:weeklycourse,date:dbdate};
+      const items : weekly = {name:weeklycourse,time:dbdate};
       console.log(items);
       this.weeklyCollection.add(items).then((res) => {
         console.log(res);
@@ -113,7 +113,7 @@ export class WeeklyCourseComponent implements OnInit {
     this.finalstartdate = moment(this.date).hours(this.StartTime.hour).minutes(this.StartTime.minute).toString();
     console.log("date n time" + this.finalstartdate);
 
-    const item : weekly = {name : val , date : this.finalstartdate};
+    const item : weekly = {name : val , time : this.finalstartdate};
     console.log(item);
     console.log(this.update_id);
 
