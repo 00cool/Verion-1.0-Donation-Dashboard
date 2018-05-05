@@ -54,6 +54,7 @@ export class EventComponent implements OnInit {
       console.log(items);
       this.eventCollection.add(items).then((res) => {
         console.log(res);
+        location.reload(true);
       })
   }
 
