@@ -1,3 +1,47 @@
+details {
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background-color: #efefef;
+}
+
+summary {
+  outline: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  /* display: grid;
+  grid-template-columns: 1fr 4fr 2fr 2fr; */
+}
+
+.tab1 {
+  padding: 2px 5px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.tab2 {
+  padding: 2px 5px;
+}
+
+.courseDetails {
+  padding:  10px;
+}
+
+.courseDetailsTab {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+}
+
+.container {
+  margin: 50px 10%;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    width: 80%;
+  }
+}
 
 .select {
     margin-bottom: 1em;
@@ -9,7 +53,7 @@
     border-radius: 50;
   }
   
-  .button{
+  .button {
     background-color: #008CBA;
     width: 25%;
     font-size: 15px;
@@ -17,9 +61,15 @@
     padding: 12px 20px;
     border-radius: 0px;
     border: 0ch;
-    
   }
   
+  .button-text {
+    border: 1px solid #008CBA;
+    padding: 5px 10px;
+    border-radius: 5px; 
+    margin: 10px;
+  } 
+
   .button1 {
     background-color: #008CBA;
     width: 40%;

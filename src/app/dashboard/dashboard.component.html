@@ -3,10 +3,10 @@
      <mat-sidenav mode="side" class="example-sidenav shadow-effect" style="border:1px grey" opened>
         <div style="float: right;width:8%;margin-top:12px;text-align: center;margin-left: 5px;">
            <button (click)="myFunction()" class="side_button shadow-effect">Analytics</button>
-           <button class="side_button shadow-effect" [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['donationpercamp'] } }]" style="font:bold; color:#868686; font-size:15px;">Per Campaign</button>
+           <button class="side_button shadow-effect" [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['donationpercamp'] } }]" style="font:bold; color:#868686; font-size:15px; padding-left: 50px;">Per Campaign</button>
            <br>
-           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['timeseries'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px;">  Time Series </button>
-           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['heatmap'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px;">UK Donation Map </button>
+           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['timeseries'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px; padding-left: 50px;">  Time Series </button>
+           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['heatmap'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px; padding-left: 50px;">UK Donation Map </button>
            <button (click)="myFunction()" class="side_button shadow-effect">Manage Application</button>
            <br>
            <!-- <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['camp'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
@@ -22,7 +22,7 @@
            Campaign </button>
            <br>
            <br>
-           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['newsubcamp'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px; padding-left: 30px;">
+           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['newsubcamp'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px; padding-left: 50px;">
            SubCampaign </button>
            <!-- <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['home'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px;">
               Event </button> -->
@@ -30,7 +30,7 @@
            <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['sponsorship'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px; padding-left: 50px;">
            Sponsorship</button>
            <br>
-           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['subsponsorship'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px; padding-left: 70px;">
+           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['subsponsorship'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px; padding-left: 50px;">
            SubSponsorship</button>
            <br>
            <!-- <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['beacon'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px;">
@@ -39,10 +39,10 @@
            <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['event'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px;">
            Event</button>
            <br>
-           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['course'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px;">
+           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['course'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px; padding-left: 50px;">
            Course</button>
            <br>
-           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['weeklycourse'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px; padding-left: 30px;">
+           <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['weeklycourse'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px; padding-left: 50px;">
            Weekly-Course</button>
            <!-- <br>
               <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['audio'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">

@@ -1,4 +1,167 @@
-<html>
+<div class="container">
+  <details *ngFor='let item of Course | async'>
+    <summary>
+      {{item.course_name}}
+      <!-- <div>{{item.course_name}}</div>
+      <div>Start: {{item.start_date.toString().slice(0,21) | date: 'short'}}</div>
+      <div>End: {{item.end_date.toString().slice(0,21) | date: 'short'}}</div> -->
+    </summary>
+    <div class="courseDetails">
+      <div class="courseDetailsTab">
+        <div class="tab1">Course Name</div>
+        <div class="tab2">{{item.course_name}}</div>
+      </div>
+      <div class="courseDetailsTab">
+        <div class="tab1">Course Desc</div>
+        <div class="tab2">{{item.course_desc}}</div>
+      </div>
+      <div class="courseDetailsTab">
+        <div class="tab1">Fee</div>
+        <div class="tab2">{{item.fee}}</div>
+      </div>
+      <div class="courseDetailsTab">
+        <div class="tab1">Location</div>
+        <div class="tab2">{{item.location}}</div>
+      </div>
+      <div class="courseDetailsTab">
+        <div class="tab1">Course Facilitator</div>
+        <div class="tab2">{{item.course_facilitator}}</div>
+      </div>
+      <div class="courseDetailsTab">
+        <div class="tab1">Course Outline</div>
+        <div class="tab2" style="text-align: justify;">{{item.course_outline}}</div>
+      </div>
+      <div class="courseDetailsTab">
+        <div class="tab1">About Course</div>
+        <div class="tab2" style="text-align: justify;">{{item.about_course}}</div>
+      </div>
+      <div class="courseDetailsTab">
+        <div class="tab1">Start Date</div>
+        <div class="tab2">{{item.start_date.toString().slice(0,21)}}</div>
+      </div>
+      <div class="courseDetailsTab">
+        <div class="tab1">End Date</div>
+        <div class="tab2">{{item.end_date.toString().slice(0,21)}}</div>
+      </div>
+      <div class="courseDetailsTab">
+        <div class="tab1"></div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr;">
+          <div style="text-align: right;">
+              <button class="button-text" value={{item.course_name}} id={{item.course_name}} (click)="show(this.id)"> <img src="./src/../../../../assets/img/edit.jpg" class="center width-30" /> &nbsp; Edit</button>
+           </div>
+           <div style="text-align: left;">
+              <button class="button-text" value={{item.course_name}} id={{item.course_name}} (click)="delete(this.id)">  <img src="./src/../../../../assets/img/delete.jpg" class="center width-15" />  &nbsp; Delete</button>
+           </div>
+        </div>
+      </div>
+    </div>
+  </details>
+  <div>
+     <button class="button" style="width: 100%; border-radius: 10px;" (click)="openModule()">Add New</button>
+     <br>
+  </div>
+</div>
+
+<div class="row" style="text-align: center; margin-top: 100px;">
+  <div class="col s12">
+    <div id="myModal" class="modal shadow-effect">
+       <span class="close" (click)="spanClick()">&times;</span>
+       <div *ngIf="!eventAdded">
+          <div class="popup-inner-style width-100">
+              <h5  id="h5" class="popup-heading"> Add New Course</h5><br>
+              <label class="float-center">Name Of the Course</label>
+              <br>
+              <input class="input width-60" type="text" id="course_name" name="course_name" placeholder="Add New Course" required>
+              <br>
+              <label class="float-center">Description</label>
+              <br>
+              <input class="input width-60" type="text" id="course_desc" name="course_desc" placeholder="Description" required><br>
+              <label class="float-center">Fee</label>
+              <br>
+              <input class="input width-60" type="number" id="fee" name="fee" placeholder="Fee" required>
+              <br>
+              <label class="float-center">Location</label>
+              <br>
+              <input class="input width-60" type="text" id="location" name="location" placeholder="Location" required>
+              <br>
+              <label class="float-center">Course Facilitator</label>
+              <br>
+              <input class="input width-60" type="text" id="facilitator" name="facilitator" placeholder="Course Facilitator" required>
+              <br>
+              
+               <label for="desc">Course Outline</label><br>
+              <textarea class="input width-60"  cols="22" rows="3" name="desc" id="desc" placeholder="Enter Course Outline..." required></textarea>
+              <br>
+              <label for="about">About Course</label><br>
+              <textarea class="input width-60"  cols="22" rows="3" name="about" id="about" placeholder="Enter About Course..." required></textarea>
+              <br>
+              <div>
+                  <label class="float-center ; ">Choose Start Date </label>
+                  <br>
+                  <mat-form-field>
+                   
+                    <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="StartDate" id="StartDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker > </mat-datepicker>
+                  </mat-form-field><br>
+                 
+                  <div class="container">
+                      <form class="demo-form">
+                      
+                          <label class="float-center">Choose Start Time </label>
+                        <div style="margin-left: 47%">
+                           
+                        <timepicker id="time_start" format="12"  color="primary" [(userTime)]="StartTime" (changed)="onChangeTime()"></timepicker>
+                      </div>
+                        <label > {{StartTime.hour}} : {{StartTime.minute}} </label>
+                   
+                      </form>
+                    
+                    </div>
+                
+              </div>
+              
+              <div>
+                  <label class="float-center">Choose End Date </label>
+                  <br>
+                  <mat-form-field>
+           
+                    <input matInput [matDatepicker]="picker1" placeholder="Choose a date" [(ngModel)]="EndDate" id="EndDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                  </mat-form-field><br>
+                 
+                  <div class="container">
+                      <label class="float-center">Choose End Time </label>
+                      <form class="demo-form">
+                          <div style="margin-left: 47%">
+                        <timepicker format="12" color="primary" [(userTime)]="EndTime" (change)="onChangeTime()"></timepicker>
+                       
+                          </div>
+                          <label > {{EndTime.hour}} : {{EndTime.minute}} </label>
+                      </form>
+                    </div>
+                
+              </div>
+            
+       
+             <button type="submit" id="add" class="width-50 button" (click)="checkButton()">ADD</button>
+             
+          </div>
+       </div>
+       <div *ngIf="eventAdded" style="text-align: center; margin-top: 50px;">
+         <span style="border: 2px solid #008cba; padding: 5px;  border-radius: 50%; font-size: 20px;">&#10004;</span>
+         <br><br>
+         <h3 *ngIf="!eventUpdated">Campaign added successfully!</h3>
+         <h3 *ngIf="eventUpdated">Campaign Updated successfully!</h3>
+         <button class="button" (click)="onContinue()">Continue</button>
+       </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <html>
    <body>
       <div class="row" style="text-align:center;margin-top: 100px;">
          <div class="col s12">
@@ -6,7 +169,6 @@
                <button class="button" style="position: absolute; right: 0;" (click)="openModule()">Add New</button>
                <br>
             </div>
-             <!-- <img src="./src/../../../../assets/img/Radhakrishna.jpg" width="20%" style="text-align:center;" /> -->
             <br>
             <br>
             <table class="shadow-effect table-css">
@@ -143,6 +305,6 @@
          </div>
       </div>
    </body>
-</html> 
+</html>  -->
 
 
