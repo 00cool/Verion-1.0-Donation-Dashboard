@@ -1,18 +1,12 @@
 //Install express server
 const express = require('express');
 const app = express();
-
-// Serve only the static files form the dist directory
-
-
-
-
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const stripe = require("stripe")(
-   
+  "sk_test_xtz7vzUNDhyFM1leNDKmLLAW"
   );
-  app.use(express.static(__dirname + '/dist'));
+ // app.use(express.static(__dirname + '/dist'));
   // parse JSON inputs
 app.use(bodyParser.json());
 
