@@ -393,12 +393,8 @@ app.post("/getCustomerCharges", (req, res) => {
       "        Thanks for your contribution. Please find your donation receipt below.\n\n"+
 
       "Regards,\n"+
-      "ASK Krishna",
-      attachments:[{
-            filename:'donation receipt.pdf',
-            contentType:'application/pdf',
-            path: pdfdata
-      }]
+      "ASK Krishna"
+     
      
      // html: '<p>Your html here</p>'// plain text body
     };
