@@ -1,0 +1,97 @@
+[
+    {
+        "y": 6465,
+        "drilldown": {
+            "name": "Aratis",
+            "categories": [
+                "Mangala Arati",
+                "Dhoopa Arati",
+                "Raj Bhoga Arati",
+                "Dhoopa Arati",
+                "Sandhya Arati",
+                "Sayana Arati"
+            ],
+            "data": [
+                1116,
+                1276,
+                1176,
+                952,
+                869,
+                1076
+            ]
+        }
+    },
+    {
+        "y": 10876,
+        "drilldown": {
+            "name": "Flowers & Garlands",
+            "categories": [
+                "Flower for Festival",
+                "Sri Londonisvara",
+                "Srimati Radharani",
+                "Lord Jagannatha",
+                "Lord Balaram",
+                "Lady Subhadra",
+                "Sri Gaura",
+                "Sri Nitai",
+                "Giriraj",
+                "Srila Prabhupada"
+            ],
+            "data": [
+                936,
+                1096,
+                1024,
+                1501,
+                631,
+                1182,
+                1594,
+                636,
+                1089,
+                1187
+            ]
+            
+        }
+    },
+    {
+        "y": 7847,
+        
+        "drilldown": {
+            "name": "Other Offerings",
+            "categories": [
+                "Special Maha Offerings",
+                "Abhisekh",
+                "Altar Decoration Flowers",
+                "Srila Prabhupada 's Vyasasana Decoration",
+                "Temple Decorations",
+                "Temple Room Decorations",
+                "Jhulan"
+            ],
+            "data": [
+                837,
+                1102,
+                1353,
+                1049,
+                1463,
+                1118,
+                925
+            ]
+            
+        }
+    },
+    {
+        "y": 2659,  
+       
+        "drilldown": {
+            "name": "Feast & Prasadam",
+            "categories": [
+                "Feast",
+                "Varuni Drink"
+            ],
+            "data": [
+                1285,
+                1374
+            ]
+           
+        }
+    }
+]
