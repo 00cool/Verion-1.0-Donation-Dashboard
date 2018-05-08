@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 // Also, parse URL encoded inputs
 app.use(bodyParser.urlencoded());
 
-app.get('/', (req, res) => res.send('Hello World!'))
+//app.get('/', (req, res) => res.send('Hello World!'))
 
 // create ephemeral keys for any customer
 app.post("/ephemeral_keys", (req, res) => {
