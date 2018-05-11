@@ -1,15 +1,31 @@
-
-
-.side_button {
+hr {
   background-color: white;
-  color: #f3680c;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px grey;
-  width: 200px;
-  float: left;
- 
 }
+
+mat-list {
+  height: 200vh;
+  background-color: white;
+  border-right: 1px solid #d0d0d0 ;
+  padding-top: 20px;
+  text-decoration: none;
+  outline: none;
+}
+
+span {
+  color: #707070;
+  font-weight: 100;
+  font-size: 1.4vw;
+  text-align: center;
+  overflow: hidden;
+  text-decoration: none;
+  outline: none;
+}
+
+mat-list-item {
+  text-decoration: none;
+  outline: none;
+}
+
 
 .example-sidenav {
     display: flex;
@@ -103,3 +119,23 @@
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}

@@ -1,16 +1,20 @@
-<div style="text-align:center;z-index: 1;position: sticky;top: 0;">
-   <div class="row shadow-effect" style="width:100%; background-color:white" >
-      <div style="float: left;width:8%;margin-right:0px;">
-         <img src="./src/../../../../assets/img/Iskcon_logo.jpg" style="width: 90%;padding: 15px;" />
+<div style="z-index: 6; position: sticky;top: 0;">
+   <div class="" style="width:99.2vw; background-color:white; display: flex; box-shadow: 0px 2px 10px lightgrey;" >
+      <div style="width:8vw;margin-right:0px;">
+        <span>
+         <img src="./src/../../../../assets/img/Iskcon_logo.jpg" style="min-width: 50%; max-width: 100%; height: auto; padding: 15px; vertical-align: middle;" />
+        </span>
       </div>
-      <div style="float: left;width:20%;margin-top:15px;text-align: center;margin-left: -20px;">
-         <span style="font:bold; color:#868686; font-size:25px;border-bottom: 1px solid blue;"> ASK KRISHANA?</span>
+      <div style="width:80vw;margin-top:15px;text-align: left;">
+        <div style="text-align: center; max-width: 200px;">
+         <span style="font:bold; color:#868686; font-size:24px;border-bottom: 1px solid #2BBBEC;">ASK KRISHNA?</span>
          <br>
-         <span style="font:bold; color:#f3680c; font-size:15px;"> Learn-Donate-Pray</span>
+         <span style="font:bold; color:#f3680c; font-size:15px;">Learn-Donate-Pray</span>
+       </div>
       </div>
-      <div style="float: right;width:10%;margin-top:15px;text-align: center;margin-left: 20px;">
+      <div style="width:10vw;margin-top:15px;text-align: center;margin-left: 20px;">
          <div id="profile" *ngIf="isLoggedIn$" class="dropdown" style="position: relative;">
-            <button class="dropbtn" style ="width: 50%"><img src="./src/../../../../assets/img/prof.png" style="width: 100%;" /></button>
+            <button class="dropbtn"><img src="./src/../../../../assets/img/bars.png" style="width: 100%; height: auto;" /></button>
             <div class="dropdown-content" style="position: absolute;right: 0;">
                <button class="button" style="font:bold; color:#868686; font-size:15px;" (click)="logout()"> Logout</button>
                <br>
@@ -18,7 +22,11 @@
             </div>
          </div>
       </div>
-      <!-- <div style="float: right;width:8%;margin-top:15px;text-align: center;margin-left: 20px;">
+   </div>
+</div>
+
+
+<!-- <div style="float: right;width:8%;margin-top:15px;text-align: center;margin-left: 20px;">
          <div  *ngIf="isLoggedIn$" class="dropdown">
              <button class="dropbtn">Analytics</button>
              <div class="dropdown-content">
@@ -45,5 +53,3 @@
              </div>
            </div>  
            </div>   -->
-   </div>
-</div>

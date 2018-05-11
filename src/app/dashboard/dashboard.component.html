@@ -1,52 +1,21 @@
-<div style="display: flex;margin-top: 5px; ">
-  <div style="width: 15%; ">
-   <button (click)="myFunction()" class="side_button shadow-effect">Analytics</button>
-   <button class="side_button shadow-effect" [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['donationpercamp'] } }]" style="font:bold; color:#868686; font-size:15px; padding-left: 50px;">Per Campaign</button>
-   <br>
-   <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['timeseries'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px; padding-left: 50px;">  Time Series </button>
-   <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['heatmap'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px; padding-left: 50px;">UK Donation Map </button>
-   <button (click)="myFunction()" class="side_button shadow-effect">Manage Application</button>
-   <br>
-   <!-- <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['camp'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
-      Campaign </button>
-      <br>
-      <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['campaign'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
-      Sub-Campaign</button>
-      <br> -->
-   <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['tapandlearn'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px;">
-   Tap & Learn </button>
-   <br>
-   <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['newcamp'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px;">
-   Campaign </button>
-   <br>
-   <br>
-   <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['newsubcamp'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px; padding-left: 50px;">
-   SubCampaign </button>
-   <!-- <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['home'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px;">
-      Event </button> -->
-   <br>
-   <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['sponsorship'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px; padding-left: 50px;">
-   Sponsorship</button>
-   <br>
-   <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['subsponsorship'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px; padding-left: 50px;">
-   SubSponsorship</button>
-   <br>
-   <!-- <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['beacon'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px;">
-      Beacon Message</button>
-      <br> -->
-   <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['event'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px;">
-   Event</button>
-   <br>
-   <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['course'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px; padding-left: 50px;">
-   Course</button>
-   <br>
-   <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['weeklycourse'] } }]" class="side_button shadow-effect" style="font:bold; color:#868686; font-size:15px; padding-left: 50px;">
-   Weekly-Course</button>
-   <!-- <br>
-      <button [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['audio'] } }]" class="side_button" style="font:bold; color:#868686; font-size:15px;">
-        Audio</button> -->
+<div style="display: flex;">
+  <div style="width: 15vw;">
+    <mat-list [style.height.px]="myInnerHeight">
+      <mat-list-item style="height: 35px; cursor: pointer;" [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['donationpercamp'] } }]"> <span >Donation Analysis</span> </mat-list-item>
+      <hr/>
+      <mat-list-item style="height: 35px; cursor: pointer;" [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['tapandlearn'] } }]"> <span >Learn</span> </mat-list-item>
+      <hr/>
+      <mat-list-item style="height: 35px; cursor: pointer;" ><span  >Donate</span> </mat-list-item>
+      <hr/>
+      <mat-list-item style="height: 35px; cursor: pointer;" [routerLink]="['/dashboard',{ outlets: { 'sidebar': ['course'] } }]"> <span>Courses</span> </mat-list-item>
+      <hr/>
+      <mat-list-item style="height: 35px; cursor: pointer;" > <span>Reports</span> </mat-list-item>
+      <hr/>
+      <mat-list-item style="height: 35px; cursor: pointer;"> <span>Temple info</span> </mat-list-item>
+      <hr/>
+    </mat-list>
   </div>
-  <div style="width: 85%; overflow: auto;">
+  <div style="max-width: 84vw; overflow: auto;">
     <router-outlet name="sidebar"></router-outlet>
   </div>
 </div>
